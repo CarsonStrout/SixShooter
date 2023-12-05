@@ -11,7 +11,8 @@ public class TargetManager : MonoBehaviour
 
     private void Start()
     {
-        SpawnTarget();
+        int rand = Random.Range(0, randPos.Length);
+        gameObject.transform.position = randPos[rand].position;
     }
 
     public void SpawnTarget()

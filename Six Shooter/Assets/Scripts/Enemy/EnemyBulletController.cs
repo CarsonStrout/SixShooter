@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyBulletController : MonoBehaviour
 {
+    [SerializeField] private AudioSource ricochetPrefab;
+
     private void Start()
     {
         Destroy(gameObject, 5f);
@@ -17,5 +19,7 @@ public class EnemyBulletController : MonoBehaviour
             collision.gameObject.GetComponent<PlayerStats>().TakeDamage(randDamage);
             Destroy(gameObject);
         }
+        else
+            Instantiate(ricochetPrefab, gameObject.transform);
     }
 }

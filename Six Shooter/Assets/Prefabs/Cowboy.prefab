@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1893164296875446526}
   - component: {fileID: 217147224282249153}
   - component: {fileID: 1947967472849516129}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cowboy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1464818c4d2b1234c9ce9baa102b1b0c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d57b723a9ffcbc943b6af49fcb6a85bb, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.2
   m_Pitch: 1
@@ -124,7 +124,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 7.5
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 6165907562189399825}
   - component: {fileID: 7750628315211201159}
   - component: {fileID: 168012140856918098}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,7 +314,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8964341633291701952}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mustache
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 9052836297762568088}
   - component: {fileID: 5852536852219721352}
   - component: {fileID: 2534359813108474776}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SpawnParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5204,7 +5204,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 0
+  m_RenderMode: 4
   m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -5215,7 +5215,7 @@ ParticleSystemRenderer:
   m_SortingFudge: 0
   m_NormalDirection: 1
   m_ShadowBias: 0
-  m_RenderAlignment: 0
+  m_RenderAlignment: 1
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
   m_UseCustomVertexStreams: 0
@@ -5245,13 +5245,13 @@ GameObject:
   - component: {fileID: 7069261065086470304}
   - component: {fileID: 8163160276992469612}
   - component: {fileID: 3489599862506700211}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HatParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7069261065086470304
 Transform:
   m_ObjectHideFlags: 0
@@ -10129,7 +10129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 370726577327999770}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LaunchPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10163,7 +10163,7 @@ GameObject:
   - component: {fileID: 8224973783817180839}
   - component: {fileID: 1613779868828257951}
   - component: {fileID: 5084267885596042028}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10268,7 +10268,7 @@ GameObject:
   - component: {fileID: 8574934974625291941}
   - component: {fileID: 6411316010193242757}
   - component: {fileID: 2841118270558565501}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10373,7 +10373,7 @@ GameObject:
   - component: {fileID: 8754549126703171203}
   - component: {fileID: 4807944750858536935}
   - component: {fileID: 8400530756998398840}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Body
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -10476,9 +10476,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6035790486011585574}
     m_Modifications:
+    - target: {fileID: 126012, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 157586, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}
       propertyPath: m_Name
       value: GunShot_Smoke_FX
+      objectReference: {fileID: 0}
+    - target: {fileID: 157586, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 488920, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}
       propertyPath: m_LocalScale.x
@@ -10619,13 +10627,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4576756691904474443, guid: f6ce131632ecef44da5bc585ca14c807, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -4570112683660275851, guid: f6ce131632ecef44da5bc585ca14c807, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f6ce131632ecef44da5bc585ca14c807, type: 3}
       propertyPath: m_Name
       value: revolver
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f6ce131632ecef44da5bc585ca14c807, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6ce131632ecef44da5bc585ca14c807, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456729961601384999, guid: f6ce131632ecef44da5bc585ca14c807, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997405879309580373, guid: f6ce131632ecef44da5bc585ca14c807, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10722,7 +10750,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4ea464031dcebc04f812a9cdfcf80319, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4ea464031dcebc04f812a9cdfcf80319, type: 3}
       propertyPath: m_IsActive

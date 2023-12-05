@@ -19,8 +19,8 @@ TagManager:
   - EnemyBody
   - EnemyHat
   - Player
-  - 
-  - 
+  - EnemyBullet
+  - Enemy
   - 
   - 
   - 

@@ -107,7 +107,7 @@ public class EnemyAI : MonoBehaviour
         agent.destination = playerTransform.position;
         agent.speed = chaseSpeed;
 
-        if (Vector3.Distance(transform.position, playerTransform.position) < attackRange)
+        if ((Vector3.Distance(transform.position, playerTransform.position) < attackRange) || !CanSeePlayer())
         {
             currentState = State.Attack;
         }
@@ -119,44 +119,47 @@ public class EnemyAI : MonoBehaviour
 
     void AttackUpdate()
     {
-        agent.isStopped = true;
-        transform.LookAt(playerTransform.position); // Enemy looks at the player
-
-        // Rotate the gun towards the player
-        Vector3 directionToPlayer = playerTransform.position - revolver.transform.position;
-        Quaternion lookRotation = Quaternion.LookRotation(directionToPlayer);
-        revolver.transform.rotation = Quaternion.Slerp(revolver.transform.rotation, lookRotation, Time.deltaTime * 5f);
-
-        if (!isReloading)
+        if (CanSeePlayer())
         {
-            if (ammoCount > 0)
+            agent.isStopped = true;
+            transform.LookAt(playerTransform.position); // Enemy looks at the player
+
+            // Rotate the gun towards the player
+            Vector3 directionToPlayer = playerTransform.position - revolver.transform.position;
+            Quaternion lookRotation = Quaternion.LookRotation(directionToPlayer);
+            revolver.transform.rotation = Quaternion.Slerp(revolver.transform.rotation, lookRotation, Time.deltaTime * 5f);
+
+            if (!isReloading)
             {
-                if (!shootingPaused)
+                if (ammoCount > 0)
                 {
-                    shootingPaused = true;
-                    Fire();
-                    ammoCount--;
-                    shootSound.Play();
-                    gunParticles.Play();
-                    StartCoroutine(Pause());
+                    if (!shootingPaused)
+                    {
+                        shootingPaused = true;
+                        Fire();
+                        ammoCount--;
+                        shootSound.Play();
+                        gunParticles.Play();
+                        StartCoroutine(Pause());
+                    }
+                }
+                else
+                {
+                    Reload();
                 }
             }
             else
             {
-                Reload();
-            }
-        }
-        else
-        {
-            revolver.gameObject.transform.Rotate(-360 * 6f * Time.deltaTime, 0, 0);
-            timer += Time.deltaTime;
+                revolver.gameObject.transform.Rotate(-360 * 6f * Time.deltaTime, 0, 0);
+                timer += Time.deltaTime;
 
-            if (timer > reloadTime)
-            {
-                isReloading = false;
-                ammoCount = maxAmmo;
-                timer = 0;
-                revolver.transform.localRotation = Quaternion.identity;
+                if (timer > reloadTime)
+                {
+                    isReloading = false;
+                    ammoCount = maxAmmo;
+                    timer = 0;
+                    revolver.transform.localRotation = Quaternion.identity;
+                }
             }
         }
 
@@ -164,7 +167,7 @@ public class EnemyAI : MonoBehaviour
         {
             currentState = State.Retreat;
         }
-        else if (Vector3.Distance(transform.position, playerTransform.position) > attackRange)
+        else if ((Vector3.Distance(transform.position, playerTransform.position) > attackRange) || !CanSeePlayer())
         {
             currentState = State.Chase;
         }
