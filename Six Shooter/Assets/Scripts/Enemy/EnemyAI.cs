@@ -37,6 +37,7 @@ public class EnemyAI : MonoBehaviour
     private bool shootingPaused = false;
     [SerializeField] private ParticleSystem spawnParticles;
     private bool canSpawn = true;
+    [SerializeField] private AudioSource spawnAudio;
 
     [Space(5)]
     [SerializeField] private GameObject[] components;
@@ -81,6 +82,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (canSpawn)
         {
+            spawnAudio.Play();
             spawnParticles.Play();
         }
 

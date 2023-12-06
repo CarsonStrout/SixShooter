@@ -12,6 +12,7 @@ public class PlayerStats : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 1;
     [SerializeField] private float sprintSpeed = 5;
+    [SerializeField] private AudioSource playerHitSound;
 
     public int PlayerHealth = 20;
 
@@ -24,6 +25,7 @@ public class PlayerStats : MonoBehaviour
     public void TakeDamage(int damage)
     {
         PlayerHealth -= damage;
+        playerHitSound.Play();
     }
 
     private void PlayerDeath()

@@ -17,9 +17,10 @@ public class EnemyBulletController : MonoBehaviour
         {
             int randDamage = Random.Range(2, 5);
             collision.gameObject.GetComponent<PlayerStats>().TakeDamage(randDamage);
-            Destroy(gameObject);
         }
         else
             Instantiate(ricochetPrefab, gameObject.transform);
+
+        Destroy(gameObject);
     }
 }
