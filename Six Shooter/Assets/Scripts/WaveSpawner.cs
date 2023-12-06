@@ -18,10 +18,12 @@ public class WaveSpawner : MonoBehaviour
 
     [SerializeField] private GameObject waveUI;
     [SerializeField] private TextMeshProUGUI waveText;
+    [SerializeField] private GameObject playerUI;
 
     private int waveNumber = 0;
     private float searchCountdown = 1f;
     private int lastSpawnIndex = -1;
+    private bool isWaveSpawning = true;
 
     private void Start()
     {
@@ -30,6 +32,7 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave()
     {
+        playerUI.SetActive(false);
         // Display the wave text and activate the UI
         waveText.text = "Wave " + (waveNumber + 1);
         waveUI.SetActive(true);
@@ -41,6 +44,8 @@ public class WaveSpawner : MonoBehaviour
         waveUI.SetActive(false);
 
         yield return new WaitForSeconds(1);
+
+        playerUI.SetActive(true);
 
         // Retrieve the current wave details
         Wave wave = waves[waveNumber];
@@ -54,6 +59,8 @@ public class WaveSpawner : MonoBehaviour
 
         // Increment the wave number for the next wave
         waveNumber++;
+
+        isWaveSpawning = false;
     }
     void SpawnEnemy(GameObject enemy)
     {
@@ -70,11 +77,11 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (EnemiesAreAllDead())
+        if (!isWaveSpawning && EnemiesAreAllDead())
         {
             if (waveNumber < waves.Length)
             {
-                // showUI = true;
+                isWaveSpawning = true;
                 StartCoroutine(SpawnWave());
             }
             else

@@ -5,10 +5,18 @@ using UnityEngine;
 public class UIFollow : MonoBehaviour
 {
     [SerializeField] private Transform playerHead;
-    [SerializeField] private float distanceFromPlayer = 2.0f;
+    [SerializeField] private float distanceFromPlayer = 5.0f;
     [SerializeField] private float followSpeed = 5.0f;
 
     private Vector3 targetPosition;
+
+    private void OnEnable()
+    {
+        targetPosition = playerHead.position + playerHead.forward * distanceFromPlayer;
+
+        Vector3 directionToPlayer = transform.position - playerHead.position;
+        transform.rotation = Quaternion.LookRotation(directionToPlayer);
+    }
 
     void Update()
     {
