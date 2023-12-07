@@ -19,6 +19,11 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private GameObject waveUI;
     [SerializeField] private TextMeshProUGUI waveText;
     [SerializeField] private GameObject playerUI;
+    [SerializeField] private GameObject winUI;
+    [SerializeField] private TextMeshProUGUI enemiesRemainingText;
+    [SerializeField] private MeshCollider groundCollider;
+
+    private int enemyAmount;
 
     private int waveNumber = 0;
     private float searchCountdown = 1f;
@@ -33,35 +38,36 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator SpawnWave()
     {
         playerUI.SetActive(false);
-        // Display the wave text and activate the UI
+        waveUI.SetActive(false);
+
+        yield return new WaitForSeconds(2);
+
         waveText.text = "Wave " + (waveNumber + 1);
         waveUI.SetActive(true);
 
-        // Wait for 3 seconds before starting the wave
         yield return new WaitForSeconds(5);
 
-        // Turn off the wave UI after 3 seconds
         waveUI.SetActive(false);
 
         yield return new WaitForSeconds(1);
 
         playerUI.SetActive(true);
 
-        // Retrieve the current wave details
         Wave wave = waves[waveNumber];
+        enemyAmount = wave.count;
+        enemiesRemainingText.text = "Enemies Remaining: " + enemyAmount.ToString();
 
-        // Spawn enemies based on wave configuration
         for (int i = 0; i < wave.count; i++)
         {
             SpawnEnemy(wave.enemyPrefab);
             yield return new WaitForSeconds(wave.spawnInterval);
         }
 
-        // Increment the wave number for the next wave
         waveNumber++;
 
         isWaveSpawning = false;
     }
+
     void SpawnEnemy(GameObject enemy)
     {
         int randIndex;
@@ -75,6 +81,12 @@ public class WaveSpawner : MonoBehaviour
         lastSpawnIndex = randIndex;
     }
 
+    public void EnemyKilled()
+    {
+        enemyAmount--;
+        enemiesRemainingText.text = "Enemies Remaining: " + enemyAmount.ToString();
+    }
+
     private void Update()
     {
         if (!isWaveSpawning && EnemiesAreAllDead())
@@ -86,10 +98,12 @@ public class WaveSpawner : MonoBehaviour
             }
             else
             {
-                Debug.Log("All waves complete!");
+                playerUI.SetActive(false);
+                waveUI.SetActive(false);
 
-                // End UI
-                // Options to replay, go to menu, and exit game
+                groundCollider.excludeLayers = LayerMask.GetMask("PlayerBullet");
+
+                winUI.SetActive(true);
             }
         }
     }

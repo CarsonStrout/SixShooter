@@ -12,6 +12,12 @@ public class EnemyStats : MonoBehaviour
     [SerializeField] private GameObject[] visualComponents;
     [SerializeField] private EnemyAI enemyAI;
     private bool isDead = false;
+    private WaveSpawner waveSpawner;
+
+    private void Start()
+    {
+        waveSpawner = GameObject.FindGameObjectWithTag("WaveManager").GetComponent<WaveSpawner>();
+    }
 
     private void Update()
     {
@@ -35,6 +41,8 @@ public class EnemyStats : MonoBehaviour
 
         for (int i = 0; i < visualComponents.Length; i++)
             visualComponents[i].SetActive(false);
+
+        waveSpawner.EnemyKilled();
 
         enemyDeathSound.Play();
         enemyDeathParticles.Play();

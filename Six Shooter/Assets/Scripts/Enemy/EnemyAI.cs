@@ -16,7 +16,7 @@ public class EnemyAI : MonoBehaviour
     private Transform playerTransform;
     public float chaseSpeed = 3f;
     public float retreatSpeed = 5f;
-    public float attackRange = 10f;
+    public float attackRange = 15f;
     public float minimumDistance = 5f; // Minimum distance to trigger retreat
 
     private NavMeshAgent agent;
@@ -55,7 +55,7 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Player not found! Make sure your player is tagged correctly.");
+            Debug.LogError("Player not found!");
         }
     }
 
@@ -182,7 +182,7 @@ public class EnemyAI : MonoBehaviour
         bullet.transform.position = launchPosition.transform.position;
 
         bullet.transform.rotation = launchPosition.transform.rotation;
-        bullet.GetComponent<Rigidbody>().AddForce(launchPosition.transform.forward * 10f, ForceMode.Impulse);
+        bullet.GetComponent<Rigidbody>().AddForce(launchPosition.transform.forward * 25f, ForceMode.Impulse);
     }
 
     IEnumerator Pause()

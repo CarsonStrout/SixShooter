@@ -13,8 +13,11 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private float movementSpeed = 1;
     [SerializeField] private float sprintSpeed = 5;
     [SerializeField] private AudioSource playerHitSound;
-
     [SerializeField] private HealthBar healthBar;
+    [SerializeField] private GameObject loseUI;
+    [SerializeField] private GameObject waveManager;
+    [SerializeField] private GameObject[] otherUIs;
+    [SerializeField] private MeshCollider groundCollider;
 
     public int PlayerHealth = 20;
 
@@ -33,7 +36,17 @@ public class PlayerStats : MonoBehaviour
 
     private void PlayerDeath()
     {
-        Scene currentScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(currentScene.buildIndex);
+        waveManager.SetActive(false);
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        foreach (GameObject enemy in enemies)
+            Destroy(enemy);
+
+        foreach (GameObject ui in otherUIs)
+            ui.SetActive(false);
+
+        groundCollider.excludeLayers = LayerMask.GetMask("PlayerBullet");
+
+        loseUI.SetActive(true);
     }
 }
