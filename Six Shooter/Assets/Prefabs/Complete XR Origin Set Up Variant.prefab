@@ -158,6 +158,12 @@ MonoBehaviour:
   sprintSpeed: 4
   playerHitSound: {fileID: 2418074768303588215}
   healthBar: {fileID: 0}
+  loseUI: {fileID: 0}
+  waveManager: {fileID: 0}
+  otherUIs:
+  - {fileID: 0}
+  - {fileID: 0}
+  groundCollider: {fileID: 0}
   PlayerHealth: 20
 --- !u!82 &2418074768303588215
 AudioSource:
@@ -2609,7 +2615,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 7
   m_TargetDisplay: 0
 --- !u!114 &2474883703740543177
 MonoBehaviour:
@@ -3762,7 +3768,7 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_Positions:
   - {x: 0, y: 0.05, z: 0.385}
   - {x: 0, y: 0.05, z: 500}
@@ -5087,12 +5093,13 @@ MonoBehaviour:
   gunParticles: {fileID: 3051946256509075921}
   controller: {fileID: 3641633037456581852}
   maxAmmo: 6
-  reloadTime: 1
+  reloadTime: 0.5
   bulletSpeed: 50
   shotVibIntensity: 1
   shotVibDuration: 0.25
   reloadVibIntensity: 0.25
-  reloadVibDuration: 1
+  reloadVibDuration: 0.5
+  numShots: 0
 --- !u!114 &7204505995365397695
 MonoBehaviour:
   m_ObjectHideFlags: 0

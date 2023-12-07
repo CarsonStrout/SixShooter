@@ -27,6 +27,7 @@ public class BulletController : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Target")
         {
+            collision.gameObject.GetComponent<TargetManager>().TargetHit();
             collision.gameObject.GetComponent<TargetManager>().SpawnTarget();
         }
         else

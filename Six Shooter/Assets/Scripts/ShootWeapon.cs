@@ -39,6 +39,8 @@ public class ShootWeapon : MonoBehaviour
     [SerializeField] private float reloadVibIntensity;
     [SerializeField] private float reloadVibDuration;
 
+    [HideInInspector] public int numShots = 0;
+
     private void Start()
     {
         _inputData = GetComponent<InputData>();
@@ -67,6 +69,7 @@ public class ShootWeapon : MonoBehaviour
                                 if (shotVibIntensity > 0)
                                     controller.SendHapticImpulse(shotVibIntensity, shotVibDuration);
                                 ammoCount--;
+                                numShots++;
                                 shootSound.Play();
                                 gunParticles.Play();
                                 StartCoroutine(Pause());

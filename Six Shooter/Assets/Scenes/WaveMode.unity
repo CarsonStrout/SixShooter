@@ -2763,7 +2763,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainButtons: {fileID: 0}
   playButtons: {fileID: 0}
-  musicManager: {fileID: 1585812166}
   waveMusic: {fileID: 8300000, guid: 4ce35d7b0cafd2c47ac3e777e3318397, type: 3}
   targetMusic: {fileID: 8300000, guid: 63fd218e963d760449b581e5fccb0ab0, type: 3}
   menuMusic: {fileID: 8300000, guid: ff71f0a2197a7ae47a9e041a5fcb5924, type: 3}
@@ -4702,10 +4701,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Complete XR Origin Set Up Variant (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 4771291866268031095, guid: 47d0254da84dca543924bd0055289f44, type: 3}
-      propertyPath: reloadTime
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 7073308009388459873, guid: 47d0254da84dca543924bd0055289f44, type: 3}
       propertyPath: loseUI
       value: 
@@ -4722,10 +4717,6 @@ PrefabInstance:
       propertyPath: groundCollider
       value: 
       objectReference: {fileID: 195390903}
-    - target: {fileID: 7073308009388459873, guid: 47d0254da84dca543924bd0055289f44, type: 3}
-      propertyPath: otherUIs.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7073308009388459873, guid: 47d0254da84dca543924bd0055289f44, type: 3}
       propertyPath: otherUIs.Array.data[0]
       value: 
@@ -8889,7 +8880,7 @@ GameObject:
   - component: {fileID: 1585812165}
   m_Layer: 0
   m_Name: MusicManager
-  m_TagString: Untagged
+  m_TagString: MusicManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

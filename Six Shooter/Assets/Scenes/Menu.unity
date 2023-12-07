@@ -495,7 +495,7 @@ GameObject:
   - component: {fileID: 119459146}
   m_Layer: 0
   m_Name: MusicManager
-  m_TagString: Untagged
+  m_TagString: MusicManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1098,7 +1098,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3543607923063072722, guid: 47d0254da84dca543924bd0055289f44, type: 3}
       propertyPath: m_SortingOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3641633037456581848, guid: 47d0254da84dca543924bd0055289f44, type: 3}
       propertyPath: m_IsActive
@@ -1139,6 +1139,14 @@ PrefabInstance:
     - target: {fileID: 7073308009388459873, guid: 47d0254da84dca543924bd0055289f44, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7660178660317165827, guid: 47d0254da84dca543924bd0055289f44, type: 3}
+      propertyPath: m_LeftHandSnapTurnAction.m_UseReference
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041324783749934672, guid: 47d0254da84dca543924bd0055289f44, type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8126239531594344521, guid: 47d0254da84dca543924bd0055289f44, type: 3}
       propertyPath: m_SmoothMotionEnabled
@@ -1742,7 +1750,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainButtons: {fileID: 983205605}
   playButtons: {fileID: 185094233}
-  musicManager: {fileID: 119459147}
   waveMusic: {fileID: 8300000, guid: 4ce35d7b0cafd2c47ac3e777e3318397, type: 3}
   targetMusic: {fileID: 8300000, guid: 63fd218e963d760449b581e5fccb0ab0, type: 3}
   menuMusic: {fileID: 8300000, guid: ff71f0a2197a7ae47a9e041a5fcb5924, type: 3}

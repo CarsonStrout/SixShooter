@@ -8,10 +8,15 @@ public class ButtonController : MonoBehaviour
 {
     [SerializeField] private GameObject mainButtons;
     [SerializeField] private GameObject playButtons;
-    [SerializeField] private MusicManager musicManager;
+    private MusicManager musicManager;
     [SerializeField] private AudioClip waveMusic;
     [SerializeField] private AudioClip targetMusic;
     [SerializeField] private AudioClip menuMusic;
+
+    private void Start()
+    {
+        musicManager = GameObject.FindGameObjectWithTag("MusicManager").GetComponent<MusicManager>();
+    }
 
     public void Quit()
     {
