@@ -104,7 +104,7 @@ public class TargetManager : MonoBehaviour
         meshRenderer.enabled = true;
         capsuleCollider.enabled = true;
 
-        startText.text = "Start";
+        startText.text = "Draw";
 
         yield return new WaitForSeconds(1);
 

@@ -6,6 +6,7 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     [SerializeField] private GameObject ricochetPrefab;
+    [SerializeField] private GameObject bloodVFX;
 
     private void Start()
     {
@@ -18,6 +19,8 @@ public class BulletController : MonoBehaviour
         {
             int randDamage = Random.Range(5, 8);
             collision.transform.parent.GetComponent<EnemyStats>().TakeDamage(randDamage);
+            GameObject blood = Instantiate(bloodVFX, gameObject.transform.position, gameObject.transform.rotation);
+            Destroy(blood, 5f);
         }
         else if (collision.gameObject.tag == "Hat")
         {
