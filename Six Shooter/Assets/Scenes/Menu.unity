@@ -15,11 +15,11 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.14901961, g: 0.0627451, b: 0, a: 1}
-  m_FogMode: 3
+  m_FogColor: {r: 0.1882353, g: 0.1882353, b: 0.1882353, a: 1}
+  m_FogMode: 1
   m_FogDensity: 0.0025
   m_LinearFogStart: 0
-  m_LinearFogEnd: 300
+  m_LinearFogEnd: 80
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.13406064, g: 0.23524362, b: 0.35116538, a: 1}
+  m_IndirectSpecularColor: {r: 0.13391471, g: 0.23525576, b: 0.35138145, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -510,7 +510,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f535fc50f5f8fb94482d94181a222db5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ff71f0a2197a7ae47a9e041a5fcb5924, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.2
   m_Pitch: 1
@@ -1091,7 +1091,7 @@ PrefabInstance:
     - target: {fileID: 812319768258975094, guid: 47d0254da84dca543924bd0055289f44, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 6e2d276cada62c049973e7a89e8de5ae, type: 3}
+      objectReference: {fileID: 8300000, guid: d57b723a9ffcbc943b6af49fcb6a85bb, type: 3}
     - target: {fileID: 1585894312374366338, guid: 47d0254da84dca543924bd0055289f44, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1379,7 +1379,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b894c4cc96c1ffc4fa3f1e7e1cfcb7f3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0e165b5852fdb9443a99c42cd24d68a3, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.15
   m_Pitch: 1
@@ -2497,7 +2497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!167 &1111230626
 AudioReverbZone:
   m_ObjectHideFlags: 0
