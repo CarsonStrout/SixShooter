@@ -52,7 +52,8 @@ Material:
     m_Floats:
     - _BarrierSpeed: 2
     - _CellSize: 10
-    - _FresnelSize: 0.5
+    - _FresnelSize: 1
+    - _PixelSize: 64
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
