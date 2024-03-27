@@ -35,7 +35,7 @@ public class ButtonController : MonoBehaviour
 
     public void WaveMode()
     {
-        SceneManager.LoadScene("WaveMode");
+        SceneManager.LoadScene("Cemetary");
         musicManager.CrossfadeMusic(waveMusic, 2f);
     }
 
