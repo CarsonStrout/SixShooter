@@ -30,7 +30,12 @@ public class WaveSpawner : MonoBehaviour
     private int lastSpawnIndex = -1;
     private bool isWaveSpawning = true;
 
-    private void Start()
+    // private void Start()
+    // {
+    //     StartCoroutine(SpawnWave());
+    // }
+
+    public void StartSpawning()
     {
         StartCoroutine(SpawnWave());
     }

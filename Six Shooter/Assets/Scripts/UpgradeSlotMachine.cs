@@ -5,14 +5,19 @@ using UnityEngine.UI;
 
 public class UpgradeSlotMachine : MonoBehaviour
 {
+    private GameManager GameManager => GameManager.Instance;
     [SerializeField] private GameObject[] slots;
-    private bool isSpinning = false;
     [SerializeField] private float spinSpeed = 0.01f;
+    [SerializeField] private AudioSource spinSound, confettiSound, confirmUpgradeSound;
+    [SerializeField] private ParticleSystem confettiParticles;
+    private bool isSpinning = false;
     private int[] selectedUpgrades;
     private bool beginSlowdown = false;
     private float timer = 0f;
 
-    private void Start()
+    private UpgradeOptions upgradeOption;
+
+    public void StartSlotMachine()
     {
         selectedUpgrades = new int[slots.Length];
 
@@ -31,6 +36,9 @@ public class UpgradeSlotMachine : MonoBehaviour
         {
             timer += Time.deltaTime;
             Debug.Log(timer);
+
+            if (!spinSound.isPlaying)
+                spinSound.Play();
 
             if (timer >= 3f)
             {
@@ -57,10 +65,14 @@ public class UpgradeSlotMachine : MonoBehaviour
             if (beginSlowdown)
             {
                 spinSpeed += 0.01f;
+                spinSound.pitch -= 0.01f;
 
                 if (spinSpeed >= 0.25f)
                 {
                     isSpinning = false;
+                    spinSound.Stop();
+                    confettiSound.Play();
+                    confettiParticles.Play();
                     RandomizeUniqueFinalSelections();
                 }
             }
@@ -98,9 +110,44 @@ public class UpgradeSlotMachine : MonoBehaviour
     {
         for (int i = 0; i < slots.Length; i++)
         {
-            slots[i].transform.GetChild(selectedUpgrades[i]).gameObject.GetComponent<BoxCollider>().enabled = true;
+            slots[i].transform.gameObject.GetComponent<BoxCollider>().enabled = true;
         }
 
-        Debug.Log("Selection enabled");
+        Debug.Log("Upgrade Selection Enabled");
     }
+
+    public void SelectUpgrade(int slotIndex)
+    {
+        switch (slotIndex)
+        {
+            case 0:
+                upgradeOption = UpgradeOptions.Dynamite;
+                break;
+            case 1:
+                upgradeOption = UpgradeOptions.SnakeVenom;
+                break;
+            case 2:
+                upgradeOption = UpgradeOptions.Lasso;
+                break;
+            case 3:
+                upgradeOption = UpgradeOptions.PokerCard;
+                break;
+            case 4:
+                upgradeOption = UpgradeOptions.BigBullet;
+                break;
+        }
+
+        Debug.Log("Selected Upgrade: " + upgradeOption);
+
+        GameManager.UpdateGameState(GameState.WaveSpawner);
+    }
+}
+
+public enum UpgradeOptions
+{
+    Dynamite,
+    SnakeVenom,
+    Lasso,
+    PokerCard,
+    BigBullet
 }
