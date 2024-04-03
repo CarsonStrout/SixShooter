@@ -103,6 +103,9 @@ public class UpgradeSlotMachine : MonoBehaviour
                 child.gameObject.SetActive(false);
             }
             slots[i].transform.GetChild(selectedUpgrades[i]).gameObject.SetActive(true);
+
+            // Enable text for final selection
+            slots[i].transform.GetChild(selectedUpgrades[i]).GetChild(0).gameObject.SetActive(true);
         }
     }
 
@@ -121,19 +124,19 @@ public class UpgradeSlotMachine : MonoBehaviour
         switch (slotIndex)
         {
             case 0:
-                upgradeOption = UpgradeOptions.Dynamite;
+                upgradeOption = UpgradeOptions.BigBullet;
                 break;
             case 1:
-                upgradeOption = UpgradeOptions.SnakeVenom;
-                break;
-            case 2:
-                upgradeOption = UpgradeOptions.Lasso;
-                break;
-            case 3:
                 upgradeOption = UpgradeOptions.PokerCard;
                 break;
+            case 2:
+                upgradeOption = UpgradeOptions.Dynamite;
+                break;
+            case 3:
+                upgradeOption = UpgradeOptions.Moonshine;
+                break;
             case 4:
-                upgradeOption = UpgradeOptions.BigBullet;
+                upgradeOption = UpgradeOptions.Lasso;
                 break;
         }
 
@@ -145,9 +148,9 @@ public class UpgradeSlotMachine : MonoBehaviour
 
 public enum UpgradeOptions
 {
-    Dynamite,
-    SnakeVenom,
-    Lasso,
+    BigBullet,
     PokerCard,
-    BigBullet
+    Dynamite,
+    Moonshine,
+    Lasso
 }
