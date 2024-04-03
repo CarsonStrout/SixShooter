@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "MainMenu")
+        if (scene.name == "Menu")
             UpdateGameState(GameState.Menu);
         else if (scene.name == "TargetPractice")
             UpdateGameState(GameState.TargetPractice);
