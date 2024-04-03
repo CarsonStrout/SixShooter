@@ -8,9 +8,12 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class ShootWeapon : MonoBehaviour
 {
+    private BulletManager bulletManager => BulletManager.Instance;
+    [SerializeField] private BulletIcons bulletIcons;
+
     [Header("References")]
     [SerializeField] private GameObject _launchPosition;
-    [SerializeField] private GameObject _bulletPrefab;
+    [SerializeField] private GameObject[] bulletPrefabs;
     [SerializeField] private GameObject revolver;
     [SerializeField] private AudioSource shootSound;
     [SerializeField] private TextMeshProUGUI ammoText;
@@ -28,7 +31,7 @@ public class ShootWeapon : MonoBehaviour
     private bool __shootingPaused = false;
     private bool triggerDown;
     private InputData _inputData;
-    [SerializeField] private float bulletSpeed = 25f;
+    [SerializeField] private float regularBulletSpeed = 25f, bigBulletSpeed = 4f, pokerCardSpeed = 25f, dynamiteSpeed = 10f, moonshineSpeed = 10f, lassoSpeed = 10f;
 
     [Space(5)]
     [Header("Controller Vibration")]
@@ -65,10 +68,15 @@ public class ShootWeapon : MonoBehaviour
                             {
                                 triggerDown = true;
                                 __shootingPaused = true;
+
+                                if (GameManager.Instance.useAmmo)
+                                    ammoCount--;
+
                                 Fire();
+
                                 if (shotVibIntensity > 0)
                                     controller.SendHapticImpulse(shotVibIntensity, shotVibDuration);
-                                ammoCount--;
+
                                 numShots++;
                                 shootSound.Play();
                                 gunParticles.Play();
@@ -110,24 +118,96 @@ public class ShootWeapon : MonoBehaviour
             int currentAmmo = Mathf.RoundToInt(reloadPercentage * maxAmmo);
             ammoText.text = currentAmmo + " / " + maxAmmo;
 
+            // Light up ammo from last to first based on currentAmmo
+            for (int i = bulletManager.isBulletLoaded.Length - 1; i >= 0; i--)
+            {
+                if (bulletManager.isBulletLoaded.Length - i <= currentAmmo)
+                    bulletIcons.LightUpIcon(i);
+                else
+                    bulletIcons.BlackOutIcon(i);
+            }
+
             if (timer > reloadTime)
             {
                 isReloading = false;
                 ammoCount = maxAmmo;
                 timer = 0;
                 revolver.transform.localRotation = Quaternion.identity;
+
+                for (int i = 0; i < bulletManager.isBulletLoaded.Length; i++)
+                {
+                    bulletManager.isBulletLoaded[i] = true;
+                }
             }
         }
     }
 
     private void Fire()
     {
-        GameObject bullet = Instantiate(_bulletPrefab) as GameObject;
-        bullet.SetActive(true);
-        bullet.transform.position = _launchPosition.transform.position;
-        bullet.transform.rotation = _launchPosition.transform.rotation;
+        if (GameManager.Instance.useAmmo && !GameManager.Instance.State.Equals(GameState.Menu) && !GameManager.Instance.State.Equals(GameState.TargetPractice))
+        {
+            if (!bulletManager.IsBulletLoaded())
+                return;
 
-        bullet.GetComponent<Rigidbody>().AddForce(_launchPosition.transform.forward * bulletSpeed, ForceMode.Impulse);
+            BulletType currentBulletType = bulletManager.GetBulletType(bulletManager.currentBulletSlot);
+            GameObject bulletPrefab = bulletPrefabs[(int)currentBulletType];
+
+            GameObject bullet = Instantiate(bulletPrefab) as GameObject;
+            bullet.SetActive(true);
+            bullet.transform.position = _launchPosition.transform.position;
+            bullet.transform.rotation = _launchPosition.transform.rotation;
+
+            float bulletSpeed = 0;
+            switch (currentBulletType)
+            {
+                case BulletType.Regular:
+                    bulletSpeed = regularBulletSpeed;
+                    break;
+                case BulletType.BigBullet:
+                    bulletSpeed = bigBulletSpeed;
+                    break;
+                case BulletType.PokerCard:
+                    bulletSpeed = pokerCardSpeed;
+                    break;
+                case BulletType.Dynamite:
+                    bulletSpeed = dynamiteSpeed;
+                    break;
+                case BulletType.Moonshine:
+                    bulletSpeed = moonshineSpeed;
+                    break;
+                case BulletType.Lasso:
+                    bulletSpeed = lassoSpeed;
+                    break;
+            }
+
+            bullet.GetComponent<Rigidbody>().AddForce(_launchPosition.transform.forward * bulletSpeed, ForceMode.Impulse);
+
+            int bulletIndex = bulletManager.currentBulletSlot;
+            bulletManager.UseBullet();
+
+            bulletIcons.BlackOutIcon(bulletIndex);
+        }
+        else
+        {
+            GameObject bullet = Instantiate(bulletPrefabs[0]) as GameObject;
+            bullet.SetActive(true);
+            bullet.transform.position = _launchPosition.transform.position;
+            bullet.transform.rotation = _launchPosition.transform.rotation;
+
+            if (ammoCount < maxAmmo)
+            {
+                int iconIndex = maxAmmo - 1 - ammoCount;
+
+                // Check if the iconIndex is within the valid range
+                if (iconIndex >= 0 && iconIndex < bulletIcons.bulletIcons.Length)
+                {
+                    bulletIcons.BlackOutIcon(iconIndex);
+                }
+            }
+
+            bullet.GetComponent<Rigidbody>().AddForce(_launchPosition.transform.forward * 25, ForceMode.Impulse);
+        }
+
     }
 
     private void Reload()

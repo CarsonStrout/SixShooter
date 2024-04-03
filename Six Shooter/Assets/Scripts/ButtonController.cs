@@ -36,13 +36,14 @@ public class ButtonController : MonoBehaviour
 
     public void WaveMode()
     {
-        SceneManager.LoadScene("Cemetary");
+        SceneManager.LoadScene("Cemetery");
         musicManager.CrossfadeMusic(waveMusic, 2f);
     }
 
     public void TargetMode()
     {
         SceneManager.LoadScene("TargetPractice");
+        GameManager.Instance.UpdateGameState(GameState.TargetPractice);
         musicManager.CrossfadeMusic(targetMusic, 2f);
     }
 
@@ -60,6 +61,8 @@ public class ButtonController : MonoBehaviour
     public void Menu()
     {
         SceneManager.LoadScene("Menu");
+        BulletManager.Instance.ResetBulletTypes();
+        GameManager.Instance.UpdateGameState(GameState.Menu);
         musicManager.CrossfadeMusic(menuMusic, 2f);
     }
 }

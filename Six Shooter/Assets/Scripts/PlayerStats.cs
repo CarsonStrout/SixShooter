@@ -47,6 +47,8 @@ public class PlayerStats : MonoBehaviour
 
         groundCollider.excludeLayers = LayerMask.GetMask("PlayerBullet");
 
+        GameManager.Instance.UpdateGameState(GameState.LoseGame);
+
         loseUI.SetActive(true);
     }
 }

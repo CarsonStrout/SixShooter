@@ -30,11 +30,6 @@ public class WaveSpawner : MonoBehaviour
     private int lastSpawnIndex = -1;
     private bool isWaveSpawning = true;
 
-    // private void Start()
-    // {
-    //     StartCoroutine(SpawnWave());
-    // }
-
     public void StartSpawning()
     {
         StartCoroutine(SpawnWave());
@@ -109,6 +104,8 @@ public class WaveSpawner : MonoBehaviour
                 groundCollider.excludeLayers = LayerMask.GetMask("PlayerBullet");
 
                 winUI.SetActive(true);
+
+                GameManager.Instance.UpdateGameState(GameState.WinGame);
             }
         }
     }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ using UnityEngine.UI;
 public class UpgradeSlotMachine : MonoBehaviour
 {
     private GameManager GameManager => GameManager.Instance;
+    private BulletManager BulletManager => BulletManager.Instance;
+    [SerializeField] private BulletIcons BulletIcons;
     [SerializeField] private GameObject[] slots;
     [SerializeField] private float spinSpeed = 0.01f;
     [SerializeField] private AudioSource spinSound, confettiSound, confirmUpgradeSound;
@@ -23,7 +26,7 @@ public class UpgradeSlotMachine : MonoBehaviour
 
         for (int i = 0; i < slots.Length; i++)
         {
-            selectedUpgrades[i] = Random.Range(0, slots[i].transform.childCount);
+            selectedUpgrades[i] = UnityEngine.Random.Range(0, slots[i].transform.childCount);
             slots[i].transform.GetChild(selectedUpgrades[i]).gameObject.SetActive(true);
         }
 
@@ -35,7 +38,7 @@ public class UpgradeSlotMachine : MonoBehaviour
         if (isSpinning && !beginSlowdown)
         {
             timer += Time.deltaTime;
-            Debug.Log(timer);
+            // Debug.Log(timer);
 
             if (!spinSound.isPlaying)
                 spinSound.Play();
@@ -56,7 +59,7 @@ public class UpgradeSlotMachine : MonoBehaviour
             for (int i = 0; i < slots.Length; i++)
             {
                 slots[i].transform.GetChild(selectedUpgrades[i]).gameObject.SetActive(false);
-                selectedUpgrades[i] = Random.Range(0, slots[i].transform.childCount);
+                selectedUpgrades[i] = UnityEngine.Random.Range(0, slots[i].transform.childCount);
                 slots[i].transform.GetChild(selectedUpgrades[i]).gameObject.SetActive(true);
             }
 
@@ -89,7 +92,7 @@ public class UpgradeSlotMachine : MonoBehaviour
             int selection;
             do
             {
-                selection = Random.Range(0, slots[i].transform.childCount);
+                selection = UnityEngine.Random.Range(0, slots[i].transform.childCount);
             } while (usedSelections.Contains(selection));
 
             usedSelections.Add(selection);
@@ -121,27 +124,12 @@ public class UpgradeSlotMachine : MonoBehaviour
 
     public void SelectUpgrade(int slotIndex)
     {
-        switch (slotIndex)
-        {
-            case 0:
-                upgradeOption = UpgradeOptions.BigBullet;
-                break;
-            case 1:
-                upgradeOption = UpgradeOptions.PokerCard;
-                break;
-            case 2:
-                upgradeOption = UpgradeOptions.Dynamite;
-                break;
-            case 3:
-                upgradeOption = UpgradeOptions.Moonshine;
-                break;
-            case 4:
-                upgradeOption = UpgradeOptions.Lasso;
-                break;
-        }
+        upgradeOption = (UpgradeOptions)selectedUpgrades[slotIndex];
 
         Debug.Log("Selected Upgrade: " + upgradeOption);
 
+        BulletManager.SetBulletType(Convert.ToInt32(GameManager.activeLevel), (BulletType)upgradeOption + 1);
+        BulletIcons.UpdateBulletIcons();
         GameManager.UpdateGameState(GameState.WaveSpawner);
     }
 }
