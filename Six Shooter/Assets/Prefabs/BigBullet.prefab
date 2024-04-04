@@ -149,9 +149,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ricochetPrefab: {fileID: 4430275869127531485, guid: ecdb755a2027f344cbbe654bd3d68aff, type: 3}
   bloodVFX: {fileID: 7250063436953837709, guid: 92d1ec991f380e9498022f29bbdcde4b, type: 3}
-  baseDamage: 8
-  criticalDamage: 15
-  criticalChance: 0.2
+  baseDamage: 10
+  criticalDamage: 20
+  criticalChance: 0.05
 --- !u!96 &7850245777656856415
 TrailRenderer:
   serializedVersion: 3

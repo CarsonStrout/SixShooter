@@ -8,6 +8,7 @@ public class CardController : MonoBehaviour
     [SerializeField] private int minDamage = 2;
     [SerializeField] private int maxDamage = 12;
     [SerializeField] private float criticalChance = 0.2f;
+    private bool isCrit;
 
     private void Start()
     {
@@ -19,9 +20,18 @@ public class CardController : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             int damage = Random.Range(minDamage, maxDamage);
-            int totalDamage = Random.Range(0, 100) < criticalChance * 100 ? damage * 2 : damage;
+            int totalDamage = damage;
+            if (Random.Range(0, 100) < criticalChance * 100)
+            {
+                isCrit = true;
+                totalDamage = damage * 2;
+            }
+            else
+            {
+                isCrit = false;
+            }
 
-            collision.transform.parent.GetComponent<EnemyStats>().TakeDamage(totalDamage);
+            collision.transform.parent.GetComponent<EnemyStats>().TakeDamage(totalDamage, isCrit);
         }
         else if (collision.gameObject.tag == "Hat")
         {

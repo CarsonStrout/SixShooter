@@ -148,6 +148,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ricochetPrefab: {fileID: 1203628507426754104, guid: ecdb755a2027f344cbbe654bd3d68aff, type: 3}
+  damage: 2
+  critDamage: 5
+  critChance: 0.05
 --- !u!96 &7850245777656856415
 TrailRenderer:
   serializedVersion: 3

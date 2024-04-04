@@ -20,9 +20,15 @@ public class BulletController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            int totalDamage = Random.Range(0, 100) < criticalChance * 100 ? criticalDamage : baseDamage;
+            if (Random.Range(0, 100) < criticalChance * 100)
+            {
+                collision.transform.parent.GetComponent<EnemyStats>().TakeDamage(criticalDamage, true);
+            }
+            else
+            {
+                collision.transform.parent.GetComponent<EnemyStats>().TakeDamage(baseDamage, false);
+            }
 
-            collision.transform.parent.GetComponent<EnemyStats>().TakeDamage(totalDamage);
             GameObject blood = Instantiate(bloodVFX, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(blood, 5f);
         }

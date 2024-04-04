@@ -295,4 +295,4 @@ MonoBehaviour:
   cardVFX: {fileID: 2114083761091257162, guid: 62698584b18a7b841abb774a0b947b5d, type: 3}
   minDamage: 2
   maxDamage: 12
-  criticalChance: 0.2
+  criticalChance: 0.5

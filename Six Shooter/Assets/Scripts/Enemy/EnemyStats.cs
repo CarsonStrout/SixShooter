@@ -31,7 +31,7 @@ public class EnemyStats : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, bool isCrit)
     {
         EnemyHealth -= damage;
         enemyHitSound.Play();
@@ -40,7 +40,7 @@ public class EnemyStats : MonoBehaviour
 
         GameObject popup = Instantiate(damagePopup, damagePopupPosition.position, Quaternion.identity);
 
-        popup.transform.GetChild(0).GetComponent<DamagePopup>().SetDamage(damage);
+        popup.transform.GetChild(0).GetComponent<DamagePopup>().SetDamage(damage, isCrit);
     }
 
     private void Died()

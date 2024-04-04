@@ -152,7 +152,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 157586, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}
       propertyPath: m_Name
-      value: GunShot_Smoke_FX
+      value: Ricochet Particles
       objectReference: {fileID: 0}
     - target: {fileID: 488920, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}
       propertyPath: m_LocalScale.x
@@ -234,6 +234,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 19970182, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 53c5a620d0f190e448d917c2a79f41ea, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 126012, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}

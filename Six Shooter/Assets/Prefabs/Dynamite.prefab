@@ -187,10 +187,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b260542a44a97e4f85a3406fb0aa3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 5
-  baseDamage: 10
+  explosionRadius: 15
+  baseDamage: 8
   explosionVFX: {fileID: 6453977531820975577, guid: 07e99cb675ce5fa42a81ea5004620c58, type: 3}
-  explosionSFX: {fileID: 0}
 --- !u!1 &8772127861934862017
 GameObject:
   m_ObjectHideFlags: 0

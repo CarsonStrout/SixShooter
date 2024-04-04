@@ -32,12 +32,11 @@ public class HealthObject : MonoBehaviour
 
     private IEnumerator Disappear()
     {
-        float disappearSpeed = 3f;
-        float disappearAmount = 0.5f;
+        float disappearAmount = 0f;
 
-        while (disappearAmount < 1)
+        while (disappearAmount < lerpSpeed)
         {
-            disappearAmount += Time.deltaTime * disappearSpeed;
+            disappearAmount += Time.deltaTime;
             transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, disappearAmount);
             yield return null;
         }

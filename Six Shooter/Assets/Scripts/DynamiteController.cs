@@ -31,7 +31,7 @@ public class DynamiteController : MonoBehaviour
 
             if (collider.tag == "Enemy")
             {
-                collider.transform.parent.GetComponent<EnemyStats>().TakeDamage((int)damage);
+                collider.transform.parent.GetComponent<EnemyStats>().TakeDamage((int)damage, false);
             }
         }
 

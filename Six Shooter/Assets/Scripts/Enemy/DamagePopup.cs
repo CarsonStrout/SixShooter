@@ -11,11 +11,7 @@ public class DamagePopup : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI textMesh;
     private Color textMeshColor;
-
-    private void Start()
-    {
-        textMeshColor = textMesh.color;
-    }
+    [SerializeField] private Color[] textMeshColors;
 
     private void Update()
     {
@@ -42,8 +38,13 @@ public class DamagePopup : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(transform.position - Camera.main.transform.position);
     }
 
-    public void SetDamage(int damage)
+    public void SetDamage(int damage, bool isCrit)
     {
+        if (isCrit)
+            textMesh.color = textMeshColors[1];
+        else
+            textMesh.color = textMeshColors[0];
+
         textMesh.text = damage.ToString();
     }
 }
