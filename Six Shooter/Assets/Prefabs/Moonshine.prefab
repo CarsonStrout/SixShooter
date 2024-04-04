@@ -128,7 +128,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 2820
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
@@ -150,6 +150,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ricochetPrefab: {fileID: 4430275869127531485, guid: ecdb755a2027f344cbbe654bd3d68aff, type: 3}
   bloodVFX: {fileID: 7250063436953837709, guid: 92d1ec991f380e9498022f29bbdcde4b, type: 3}
+  baseDamage: 5
+  criticalDamage: 10
+  criticalChance: 0.2
 --- !u!96 &7850245777656856415
 TrailRenderer:
   serializedVersion: 3

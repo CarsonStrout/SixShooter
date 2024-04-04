@@ -1129,7 +1129,7 @@ RectTransform:
   m_GameObject: {fileID: 3360623102622155352}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8479826017071778023}
@@ -1142,7 +1142,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: -4.5}
+  m_AnchoredPosition: {x: 1, y: -2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2242087972051689751
@@ -2396,7 +2396,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7288549043286018344}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -3566,11 +3566,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19885060, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.05
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 19885060, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}
       propertyPath: InitialModule.startSize.minScalar
-      value: 0.025
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 19885060, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.ctime1
@@ -5841,13 +5841,12 @@ MonoBehaviour:
   - {fileID: 4942179030738579388, guid: ef485464cd2b04c42877558b30f758e2, type: 3}
   revolver: {fileID: 3707824840212177965}
   shootSound: {fileID: 812319768258975094}
-  ammoText: {fileID: 296902200835188246}
   gunParticles: {fileID: 3051946256509075921}
   controller: {fileID: 3641633037456581852}
   maxAmmo: 6
   reloadTime: 0.5
   regularBulletSpeed: 25
-  bigBulletSpeed: 10
+  bigBulletSpeed: 4
   pokerCardSpeed: 25
   dynamiteSpeed: 15
   moonshineSpeed: 10

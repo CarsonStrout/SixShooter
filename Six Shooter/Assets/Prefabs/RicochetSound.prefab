@@ -220,7 +220,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19885060, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.02
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 19885060, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.025
       objectReference: {fileID: 0}
     - target: {fileID: 19949966, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}
       propertyPath: m_Materials.Array.size

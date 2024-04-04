@@ -21,6 +21,30 @@ public class EnemyStats : MonoBehaviour
     private void Start()
     {
         waveSpawner = GameObject.FindGameObjectWithTag("WaveManager").GetComponent<WaveSpawner>();
+
+        int activeLevel = (int)GameManager.Instance.activeLevel;
+
+        switch (activeLevel)
+        {
+            case 0:
+                EnemyHealth = 15;
+                break;
+            case 1:
+                EnemyHealth = 18;
+                break;
+            case 2:
+                EnemyHealth = 21;
+                break;
+            case 3:
+                EnemyHealth = 24;
+                break;
+            case 4:
+                EnemyHealth = 27;
+                break;
+            case 5:
+                EnemyHealth = 30;
+                break;
+        }
     }
 
     private void Update()

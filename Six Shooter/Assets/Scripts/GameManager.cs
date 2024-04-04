@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject upgradeSlotMachine;
     [SerializeField] private GameObject waveSpawner;
+    [SerializeField] public List<string> waveScenes = new List<string>();
 
     private void Awake()
     {
@@ -43,6 +44,17 @@ public class GameManager : MonoBehaviour
 
         if (waveSpawner == null)
             waveSpawner = GameObject.Find("WaveSpawner");
+    }
+
+    public void RandomizeLevels()
+    {
+        for (int i = 0; i < waveScenes.Count; i++)
+        {
+            string temp = waveScenes[i];
+            int randomIndex = UnityEngine.Random.Range(i, waveScenes.Count);
+            waveScenes[i] = waveScenes[randomIndex];
+            waveScenes[randomIndex] = temp;
+        }
     }
 
     private void OnDestroy()
@@ -94,6 +106,10 @@ public class GameManager : MonoBehaviour
                 useAmmo = true;
                 StartWaves();
                 break;
+            case GameState.CompleteLevel:
+                useAmmo = false;
+                StartCoroutine(NextLevel());
+                break;
             case GameState.WinGame:
                 useAmmo = false;
                 break;
@@ -143,6 +159,45 @@ public class GameManager : MonoBehaviour
         upgradeSlotMachine.SetActive(false);
         waveSpawner.GetComponent<WaveSpawner>().StartSpawning();
     }
+
+    private IEnumerator NextLevel()
+    {
+        yield return new WaitForSeconds(3);
+
+        if (waveScenes.Count > 0)
+        {
+            string nextLevel = waveScenes[0];
+            waveScenes.RemoveAt(0);
+            SceneManager.LoadScene(nextLevel);
+
+            // Increment the activeLevel sequentially
+            IncrementActiveLevel();
+
+            ButtonController.Instance.NextLevel();
+        }
+    }
+
+    private void IncrementActiveLevel()
+    {
+        switch (activeLevel)
+        {
+            case ActiveLevel.Level1:
+                activeLevel = ActiveLevel.Level2;
+                break;
+            case ActiveLevel.Level2:
+                activeLevel = ActiveLevel.Level3;
+                break;
+            case ActiveLevel.Level3:
+                activeLevel = ActiveLevel.Level4;
+                break;
+            case ActiveLevel.Level4:
+                activeLevel = ActiveLevel.Level5;
+                break;
+            case ActiveLevel.Level5:
+                activeLevel = ActiveLevel.Level6;
+                break;
+        }
+    }
 }
 
 public enum GameState
@@ -151,6 +206,7 @@ public enum GameState
     TargetPractice,
     UpgradeSlotMachine,
     WaveSpawner,
+    CompleteLevel,
     WinGame,
     LoseGame
 }

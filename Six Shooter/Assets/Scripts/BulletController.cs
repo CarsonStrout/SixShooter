@@ -45,6 +45,7 @@ public class BulletController : MonoBehaviour
         }
         else
         {
+            Debug.Log(collision.gameObject.name);
             Instantiate(ricochetPrefab, gameObject.transform.position, gameObject.transform.rotation);
         }
 

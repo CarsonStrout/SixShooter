@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: red_laterite_soil_stones_diff_1k
-    second: {fileID: 2800000, guid: 6833a743049382948a77c233bf455ef5, type: 3}
+    second: {fileID: 2800000, guid: 0c69744f3c317fe4e907f15c7d0e1537, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

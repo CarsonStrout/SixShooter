@@ -14,12 +14,14 @@ public class WaveSpawner : MonoBehaviour
     }
 
     public Wave[] waves;
+
     public Transform[] spawnPoints;
 
     [SerializeField] private GameObject waveUI;
     [SerializeField] private TextMeshProUGUI waveText;
     [SerializeField] private GameObject playerUI;
     [SerializeField] private GameObject winUI;
+    [SerializeField] private GameObject completeLevelUI;
     [SerializeField] private TextMeshProUGUI enemiesRemainingText;
     [SerializeField] private MeshCollider groundCollider;
 
@@ -29,6 +31,8 @@ public class WaveSpawner : MonoBehaviour
     private float searchCountdown = 1f;
     private int lastSpawnIndex = -1;
     private bool isWaveSpawning = true;
+
+    private bool levelDone = false;
 
     public void StartSpawning()
     {
@@ -103,9 +107,21 @@ public class WaveSpawner : MonoBehaviour
 
                 groundCollider.excludeLayers = LayerMask.GetMask("PlayerBullet");
 
-                winUI.SetActive(true);
 
-                GameManager.Instance.UpdateGameState(GameState.WinGame);
+                if (GameManager.Instance.activeLevel != ActiveLevel.Level6)
+                {
+                    if (levelDone)
+                        return;
+
+                    levelDone = true;
+                    completeLevelUI.SetActive(true);
+                    GameManager.Instance.UpdateGameState(GameState.CompleteLevel);
+                }
+                else
+                {
+                    winUI.SetActive(true);
+                    GameManager.Instance.UpdateGameState(GameState.WinGame);
+                }
             }
         }
     }

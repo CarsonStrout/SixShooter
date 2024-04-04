@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  chaseSpeed: 3
+  chaseSpeed: 5
   retreatSpeed: 5
   attackRange: 15
   minimumDistance: 5

@@ -16,7 +16,6 @@ public class ShootWeapon : MonoBehaviour
     [SerializeField] private GameObject[] bulletPrefabs;
     [SerializeField] private GameObject revolver;
     [SerializeField] private AudioSource shootSound;
-    [SerializeField] private TextMeshProUGUI ammoText;
     [SerializeField] private ParticleSystem gunParticles;
     [SerializeField] private XRBaseController controller;
 
@@ -52,8 +51,6 @@ public class ShootWeapon : MonoBehaviour
 
     private void Update()
     {
-        ammoText.text = ammoCount + " / " + maxAmmo;
-
         if (!isReloading)
         {
             if (ammoCount > 0)
@@ -116,7 +113,6 @@ public class ShootWeapon : MonoBehaviour
 
             // Calculate current ammo based on the reload percentage
             int currentAmmo = Mathf.RoundToInt(reloadPercentage * maxAmmo);
-            ammoText.text = currentAmmo + " / " + maxAmmo;
 
             // Light up ammo from last to first based on currentAmmo
             for (int i = bulletManager.isBulletLoaded.Length - 1; i >= 0; i--)

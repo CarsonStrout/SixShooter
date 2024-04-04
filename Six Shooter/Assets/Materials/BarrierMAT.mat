@@ -52,6 +52,7 @@ Material:
     m_Floats:
     - _BarrierSpeed: 2
     - _CellSize: 10
+    - _DitherSize: 0.5
     - _FresnelSize: 1
     - _PixelSize: 64
     - _QueueControl: 0
