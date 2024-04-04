@@ -7,6 +7,9 @@ public class BulletController : MonoBehaviour
 {
     [SerializeField] private GameObject ricochetPrefab;
     [SerializeField] private GameObject bloodVFX;
+    [SerializeField] private int baseDamage = 5;
+    [SerializeField] private int criticalDamage = 10;
+    [SerializeField] private float criticalChance = 0.2f;
 
     private void Start()
     {
@@ -17,8 +20,9 @@ public class BulletController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            int randDamage = Random.Range(5, 8);
-            collision.transform.parent.GetComponent<EnemyStats>().TakeDamage(randDamage);
+            int totalDamage = Random.Range(0, 100) < criticalChance * 100 ? criticalDamage : baseDamage;
+
+            collision.transform.parent.GetComponent<EnemyStats>().TakeDamage(totalDamage);
             GameObject blood = Instantiate(bloodVFX, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(blood, 5f);
         }

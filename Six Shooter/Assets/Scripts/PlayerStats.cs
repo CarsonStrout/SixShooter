@@ -12,7 +12,7 @@ public class PlayerStats : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 1;
     [SerializeField] private float sprintSpeed = 5;
-    [SerializeField] private AudioSource playerHitSound;
+    [SerializeField] private AudioSource playerHitSound, playerHealSound;
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private GameObject loseUI;
     [SerializeField] private GameObject waveManager;
@@ -34,6 +34,18 @@ public class PlayerStats : MonoBehaviour
         playerHitSound.Play();
     }
 
+    public void HealPlayer(int healAmount)
+    {
+        PlayerHealth += healAmount;
+
+        if (PlayerHealth > 20)
+            PlayerHealth = 20;
+
+        playerHealSound.Play();
+
+        healthBar.UpdateHealthBar(-healAmount);
+    }
+
     private void PlayerDeath()
     {
         waveManager.SetActive(false);
@@ -50,5 +62,15 @@ public class PlayerStats : MonoBehaviour
         GameManager.Instance.UpdateGameState(GameState.LoseGame);
 
         loseUI.SetActive(true);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Health")
+        {
+            int healAmount = other.gameObject.GetComponent<HealthObject>().GetHealAmount();
+            HealPlayer(healAmount);
+            Destroy(other.gameObject);
+        }
     }
 }

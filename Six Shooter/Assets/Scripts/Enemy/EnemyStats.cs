@@ -6,11 +6,15 @@ using UnityEngine.Lumin;
 public class EnemyStats : MonoBehaviour
 {
     public int EnemyHealth = 20;
+    [SerializeField] private DamageFlash damageFlash;
     [SerializeField] private AudioSource enemyHitSound;
     [SerializeField] private AudioSource enemyDeathSound;
     [SerializeField] private ParticleSystem enemyDeathParticles;
     [SerializeField] private GameObject[] visualComponents;
     [SerializeField] private EnemyAI enemyAI;
+    [SerializeField] private GameObject damagePopup;
+    [SerializeField] private Transform damagePopupPosition, healthPrefabPosition;
+    [SerializeField] private GameObject healthPrefab;
     private bool isDead = false;
     private WaveSpawner waveSpawner;
 
@@ -31,6 +35,12 @@ public class EnemyStats : MonoBehaviour
     {
         EnemyHealth -= damage;
         enemyHitSound.Play();
+
+        damageFlash.Flash();
+
+        GameObject popup = Instantiate(damagePopup, damagePopupPosition.position, Quaternion.identity);
+
+        popup.transform.GetChild(0).GetComponent<DamagePopup>().SetDamage(damage);
     }
 
     private void Died()
@@ -46,6 +56,8 @@ public class EnemyStats : MonoBehaviour
 
         enemyDeathSound.Play();
         enemyDeathParticles.Play();
+
+        GameObject health = Instantiate(healthPrefab, healthPrefabPosition.position, gameObject.transform.rotation);
 
         Destroy(gameObject, 5f);
     }

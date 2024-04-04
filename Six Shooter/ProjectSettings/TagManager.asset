@@ -11,6 +11,7 @@ TagManager:
   - Hat
   - WaveManager
   - MusicManager
+  - Health
   layers:
   - Default
   - TransparentFX

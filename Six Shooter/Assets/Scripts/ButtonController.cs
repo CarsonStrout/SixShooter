@@ -9,7 +9,6 @@ public class ButtonController : MonoBehaviour
     [SerializeField] private GameObject mainButtons;
     [SerializeField] private GameObject playButtons;
     private MusicManager musicManager;
-    // [SerializeField] private 
     [SerializeField] private AudioClip waveMusic;
     [SerializeField] private AudioClip targetMusic;
     [SerializeField] private AudioClip menuMusic;

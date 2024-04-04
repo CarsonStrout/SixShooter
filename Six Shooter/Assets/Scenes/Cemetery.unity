@@ -4889,6 +4889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   State: 0
   activeLevel: 0
+  useAmmo: 0
   upgradeSlotMachine: {fileID: 962023350}
   waveSpawner: {fileID: 771616731}
 --- !u!4 &748042641
