@@ -88,13 +88,12 @@ public class ButtonController : MonoBehaviour
         }
     }
 
-    public void NextLevel()
+    public void NextLevel(string level)
     {
-        // Crossfade music to the next level
-        string nextLevel = GameManager.Instance.waveScenes[0];
-        if (levelMusicMap.TryGetValue(nextLevel, out AudioClip music))
+        // Crossfade music to the next level's music
+        if (levelMusicMap.TryGetValue(level, out AudioClip music))
         {
-            Debug.Log("Crossfading to " + music.name + " for " + nextLevel);
+            Debug.Log("Crossfading to " + music.name + " for " + level);
             musicManager.CrossfadeMusic(music, 2f);
         }
     }

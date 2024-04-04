@@ -180,7 +180,7 @@ public class GameManager : MonoBehaviour
             // Increment the activeLevel sequentially
             IncrementActiveLevel();
 
-            ButtonController.Instance.NextLevel();
+            ButtonController.Instance.NextLevel(nextLevel);
         }
     }
 
