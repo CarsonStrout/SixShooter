@@ -203,7 +203,6 @@ public class ShootWeapon : MonoBehaviour
 
             bullet.GetComponent<Rigidbody>().AddForce(_launchPosition.transform.forward * 25, ForceMode.Impulse);
         }
-
     }
 
     private void Reload()

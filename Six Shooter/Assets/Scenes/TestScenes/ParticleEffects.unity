@@ -135,10 +135,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cowboy
       objectReference: {fileID: 0}
-    - target: {fileID: 887008361810399870, guid: 7466b03ebf6d3ad4c88114241ace3bb6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1613930980622505482, guid: 7466b03ebf6d3ad4c88114241ace3bb6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

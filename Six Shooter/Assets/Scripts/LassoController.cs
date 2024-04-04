@@ -19,6 +19,12 @@ public class LassoController : MonoBehaviour
             collision.transform.parent.GetComponent<EnemyAI>().chaseSpeed = 0f;
             collision.transform.parent.GetComponent<EnemyAI>().retreatSpeed = 0f;
         }
+        else if (collision.gameObject.tag == "Hat")
+        {
+            collision.gameObject.GetComponent<BoxCollider>().enabled = false;
+            collision.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            collision.gameObject.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().Play();
+        }
 
         Destroy(gameObject);
     }

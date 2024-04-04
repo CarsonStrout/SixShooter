@@ -148,6 +148,13 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator StartUpgrade()
     {
+        // load all bullets
+        for (int i = 0; i < BulletManager.Instance.isBulletLoaded.Length; i++)
+        {
+            BulletManager.Instance.isBulletLoaded[i] = true;
+            BulletManager.Instance.currentBulletSlot = 0;
+        }
+
         yield return new WaitForSeconds(1);
         upgradeSlotMachine.SetActive(true);
         yield return new WaitForSeconds(1);

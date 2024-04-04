@@ -40,6 +40,7 @@ public class EnemyAI : MonoBehaviour
     private float timer;
     private bool shootingPaused = false;
     [SerializeField] private ParticleSystem spawnParticles;
+    [SerializeField] private ParticleSystem drunkParticles;
     private bool canSpawn = true;
     [SerializeField] private AudioSource spawnAudio;
 
@@ -184,6 +185,9 @@ public class EnemyAI : MonoBehaviour
 
     void DrunkUpdate()
     {
+        if (drunkParticles.isStopped)
+            drunkParticles.Play();
+
         agent.isStopped = false;
 
         Vector3 randomDirection = Random.insideUnitSphere * 10f;
@@ -199,6 +203,7 @@ public class EnemyAI : MonoBehaviour
         if (drunkTime > drunkTimer)
         {
             currentState = State.Chase;
+            drunkParticles.Stop();
             drunkTime = 0;
         }
     }

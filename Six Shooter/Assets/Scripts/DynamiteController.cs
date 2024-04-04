@@ -6,6 +6,7 @@ public class DynamiteController : MonoBehaviour
 {
     [SerializeField] private float explosionRadius = 15f;
     [SerializeField] private int baseDamage = 10;
+    [SerializeField] private float criticalChance = 0.1f;
     [SerializeField] private GameObject explosionVFX;
 
     private void Start()
@@ -31,7 +32,17 @@ public class DynamiteController : MonoBehaviour
 
             if (collider.tag == "Enemy")
             {
-                collider.transform.parent.GetComponent<EnemyStats>().TakeDamage((int)damage, false);
+                if (Random.Range(0, 100) < criticalChance * 100)
+                    collider.transform.parent.GetComponent<EnemyStats>().TakeDamage((int)damage * 2, true);
+                else
+                    collider.transform.parent.GetComponent<EnemyStats>().TakeDamage((int)damage, false);
+            }
+
+            if (collider.tag == "Hat")
+            {
+                collider.gameObject.GetComponent<BoxCollider>().enabled = false;
+                collider.gameObject.GetComponent<MeshRenderer>().enabled = false;
+                collider.gameObject.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().Play();
             }
         }
 

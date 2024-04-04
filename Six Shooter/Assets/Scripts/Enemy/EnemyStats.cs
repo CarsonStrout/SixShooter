@@ -9,7 +9,7 @@ public class EnemyStats : MonoBehaviour
     [SerializeField] private DamageFlash damageFlash;
     [SerializeField] private AudioSource enemyHitSound;
     [SerializeField] private AudioSource enemyDeathSound;
-    [SerializeField] private ParticleSystem enemyDeathParticles;
+    [SerializeField] private ParticleSystem enemyDeathParticles, drunkParticles;
     [SerializeField] private GameObject[] visualComponents;
     [SerializeField] private EnemyAI enemyAI;
     [SerializeField] private GameObject damagePopup;
@@ -70,6 +70,9 @@ public class EnemyStats : MonoBehaviour
     private void Died()
     {
         isDead = true;
+
+        if (drunkParticles.isPlaying)
+            drunkParticles.Stop();
 
         enemyAI.enabled = false;
 
