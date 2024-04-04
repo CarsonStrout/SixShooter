@@ -148,7 +148,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator StartUpgrade()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         upgradeSlotMachine.SetActive(true);
         yield return new WaitForSeconds(1);
         upgradeSlotMachine.GetComponent<UpgradeSlotMachine>().StartSlotMachine();

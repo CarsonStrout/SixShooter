@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 74095bd86b88f044b9f5559be33e0744, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -116,8 +116,8 @@ GameObject:
   - component: {fileID: 2125519881454142130}
   - component: {fileID: 7842032699028393561}
   - component: {fileID: 6690737941839040819}
-  - component: {fileID: 8815914423054919958}
   - component: {fileID: 7850245777656856415}
+  - component: {fileID: 6321753892476573505}
   m_Layer: 11
   m_Name: Lasso
   m_TagString: Bullet
@@ -176,23 +176,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &8815914423054919958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4942179030738579388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43aec5fe7a3877840be474c16477f043, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ricochetPrefab: {fileID: 4430275869127531485, guid: ecdb755a2027f344cbbe654bd3d68aff, type: 3}
-  bloodVFX: {fileID: 7250063436953837709, guid: 92d1ec991f380e9498022f29bbdcde4b, type: 3}
-  baseDamage: 5
-  criticalDamage: 10
-  criticalChance: 0.2
 --- !u!96 &7850245777656856415
 TrailRenderer:
   serializedVersion: 3
@@ -297,3 +280,16 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &6321753892476573505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4942179030738579388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e2939d9cf6fb14793bc81f1ee6be1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseDamage: 5

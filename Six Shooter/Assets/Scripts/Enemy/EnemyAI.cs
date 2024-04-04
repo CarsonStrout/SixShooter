@@ -9,13 +9,17 @@ public class EnemyAI : MonoBehaviour
         Spawn,
         Chase,
         Attack,
-        Retreat
+        Retreat,
+        Drunk
     }
 
     public State currentState;
     private Transform playerTransform;
     public float chaseSpeed = 3f;
     public float retreatSpeed = 5f;
+    public float drunkSpeed = 1f;
+    public float drunkTimer = 5f;
+    private float drunkTime;
     public float attackRange = 15f;
     public float minimumDistance = 5f; // Minimum distance to trigger retreat
 
@@ -74,6 +78,9 @@ public class EnemyAI : MonoBehaviour
                 break;
             case State.Retreat:
                 RetreatUpdate();
+                break;
+            case State.Drunk:
+                DrunkUpdate();
                 break;
         }
     }
@@ -172,6 +179,27 @@ public class EnemyAI : MonoBehaviour
         else if ((Vector3.Distance(transform.position, playerTransform.position) > attackRange) || !CanSeePlayer())
         {
             currentState = State.Chase;
+        }
+    }
+
+    void DrunkUpdate()
+    {
+        agent.isStopped = false;
+
+        Vector3 randomDirection = Random.insideUnitSphere * 10f;
+        randomDirection += transform.position;
+        NavMeshHit hit;
+        NavMesh.SamplePosition(randomDirection, out hit, 10f, 1);
+        Vector3 finalPosition = hit.position;
+
+        agent.SetDestination(finalPosition);
+
+        drunkTime += Time.deltaTime;
+
+        if (drunkTime > drunkTimer)
+        {
+            currentState = State.Chase;
+            drunkTime = 0;
         }
     }
 

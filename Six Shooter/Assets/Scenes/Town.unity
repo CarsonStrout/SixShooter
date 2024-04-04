@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHead: {fileID: 1930542785}
-  distanceFromPlayer: 5
+  distanceFromPlayer: 8
   followSpeed: 5
 --- !u!114 &31509862
 MonoBehaviour:
@@ -5713,6 +5713,10 @@ PrefabInstance:
     - target: {fileID: 5860442550155527701, guid: 491d815fcb36f6e4eb7891cf7fd431b1, type: 3}
       propertyPath: m_Name
       value: UpgradeSlotMachine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5860442550155527701, guid: 491d815fcb36f6e4eb7891cf7fd431b1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8252314929668281336, guid: 491d815fcb36f6e4eb7891cf7fd431b1, type: 3}
       propertyPath: playerHead

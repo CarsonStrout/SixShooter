@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DynamiteController : MonoBehaviour
 {
-    [SerializeField] private float explosionRadius = 5f;
+    [SerializeField] private float explosionRadius = 15f;
     [SerializeField] private int baseDamage = 10;
     [SerializeField] private GameObject explosionVFX;
 

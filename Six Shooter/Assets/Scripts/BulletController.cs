@@ -30,7 +30,6 @@ public class BulletController : MonoBehaviour
             }
 
             GameObject blood = Instantiate(bloodVFX, gameObject.transform.position, gameObject.transform.rotation);
-            Destroy(blood, 5f);
         }
         else if (collision.gameObject.tag == "Hat")
         {
@@ -45,7 +44,6 @@ public class BulletController : MonoBehaviour
         }
         else
         {
-            Debug.Log(collision.gameObject.name);
             Instantiate(ricochetPrefab, gameObject.transform.position, gameObject.transform.rotation);
         }
 

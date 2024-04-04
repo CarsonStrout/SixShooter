@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CardController : MonoBehaviour
 {
+    [SerializeField] private GameObject[] cards;
     [SerializeField] private GameObject cardVFX;
     [SerializeField] private int minDamage = 2;
     [SerializeField] private int maxDamage = 12;
@@ -13,6 +14,9 @@ public class CardController : MonoBehaviour
     private void Start()
     {
         Destroy(gameObject, 5f);
+
+        int randomCard = Random.Range(0, cards.Length);
+        cards[randomCard].SetActive(true);
     }
 
     private void OnCollisionEnter(Collision collision)
