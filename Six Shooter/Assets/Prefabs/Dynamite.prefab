@@ -189,6 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionRadius: 15
   baseDamage: 8
+  criticalChance: 0.1
   explosionVFX: {fileID: 6453977531820975577, guid: 07e99cb675ce5fa42a81ea5004620c58, type: 3}
 --- !u!1 &8772127861934862017
 GameObject:
@@ -252,7 +253,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a5de4c75ff9d89f448d2965300f98f8f, type: 2}
+  - {fileID: 2100000, guid: 763090e395f86924d8d51b9b965352a4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
