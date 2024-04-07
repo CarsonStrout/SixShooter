@@ -40,10 +40,10 @@ Material:
     - _ColorResolution: 12
     - _DitherSpread: 0.08
     - _PixelSize: 3
-    - _ScanlineAlpha: 0.25
+    - _ScanlineAlpha: 0.05
     - _ScanlineAmount: 1
     - _ScanlineSize: 0.001
     - _ScanlineSpeed: 0.15
     m_Colors:
-    - _ScanlineColor: {r: 1, g: 0.972549, b: 0.90588236, a: 1}
+    - _ScanlineColor: {r: 1, g: 0.87058824, b: 0.6784314, a: 1}
   m_BuildTextureStacks: []
