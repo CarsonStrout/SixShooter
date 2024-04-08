@@ -33,13 +33,13 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private GameObject launchPosition;
     [SerializeField] private GameObject bulletPrefab, friendlyFireBulletPrefab;
     [SerializeField] private GameObject revolver;
-    [SerializeField] private AudioSource shootSound;
+    [SerializeField] private AudioSource shootSound, reloadSound;
     [SerializeField] private ParticleSystem gunParticles;
 
     [SerializeField] private int maxAmmo = 6;
     private int ammoCount;
     private bool isReloading = false;
-    private float reloadTime = 1f;
+    private float reloadTime = 0.5f;
     private float timer;
     private bool shootingPaused = false;
     [SerializeField] private GameObject enemyBody;
@@ -348,6 +348,8 @@ public class EnemyAI : MonoBehaviour
     private void Reload()
     {
         isReloading = true;
+
+        reloadSound.Play();
     }
 
     private bool CanSeePlayer()

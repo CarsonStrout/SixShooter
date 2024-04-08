@@ -15,7 +15,7 @@ public class ShootWeapon : MonoBehaviour
     [SerializeField] private GameObject _launchPosition;
     [SerializeField] private GameObject[] bulletPrefabs;
     [SerializeField] private GameObject revolver;
-    [SerializeField] private AudioSource shootSound, frontierShootSound;
+    [SerializeField] private AudioSource shootSound, frontierShootSound, revolverSpinSound, dryFireSound;
     [SerializeField] private ParticleSystem gunParticles;
     [SerializeField] private XRBaseController controller;
 
@@ -89,6 +89,22 @@ public class ShootWeapon : MonoBehaviour
             }
             else
             {
+                // trigger button detection again
+                if (_inputData._rightController.TryGetFeatureValue(CommonUsages.triggerButton, out bool _triggerButtonPressed))
+                {
+                    if (_triggerButtonPressed)
+                    {
+                        if (!triggerDown)
+                        {
+                            triggerDown = true;
+                            dryFireSound.Play();
+                            StartCoroutine(Pause());
+                        }
+                    }
+                    else
+                        triggerDown = false;
+                }
+
                 // Threshold for detecting fast upward motion
                 float upwardVelocityThreshold = 1.5f;
 
@@ -200,6 +216,8 @@ public class ShootWeapon : MonoBehaviour
 
             if (bulletManager.GetBulletType(bulletManager.currentBulletSlot) == BulletType.Shotgun)
             {
+                Destroy(bullet);
+
                 // Define the spread angle (e.g., 5 degrees)
                 float spreadAngle = 5f;
 
@@ -208,7 +226,7 @@ public class ShootWeapon : MonoBehaviour
 
                 for (int i = -additionalBulletsPerSide; i <= additionalBulletsPerSide; i++)
                 {
-                    GameObject extraBullet = Instantiate(bulletPrefab) as GameObject;
+                    GameObject extraBullet = Instantiate(bulletPrefabs[(int)currentBulletType]) as GameObject;
                     extraBullet.SetActive(true);
                     extraBullet.transform.position = _launchPosition.transform.position;
                     extraBullet.transform.rotation = _launchPosition.transform.rotation;
@@ -258,6 +276,9 @@ public class ShootWeapon : MonoBehaviour
     private void Reload()
     {
         isReloading = true;
+
+        revolverSpinSound.Play();
+
         if (reloadVibIntensity > 0)
             controller.SendHapticImpulse(reloadVibIntensity, reloadVibDuration);
     }

@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9453668b73fe1f4458d3e3057290faef, type: 2}
+  - {fileID: 2100000, guid: 763090e395f86924d8d51b9b965352a4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -152,6 +152,7 @@ MonoBehaviour:
   baseDamage: 5
   criticalDamage: 10
   criticalChance: 0.05
+  lifeTime: 0.5
 --- !u!96 &7850245777656856415
 TrailRenderer:
   serializedVersion: 3

@@ -10,10 +10,11 @@ public class BulletController : MonoBehaviour
     [SerializeField] private int baseDamage = 5;
     [SerializeField] private int criticalDamage = 10;
     [SerializeField] private float criticalChance = 0.05f;
+    [SerializeField] private float lifeTime = 5f;
 
     private void Start()
     {
-        Destroy(gameObject, 5f);
+        Destroy(gameObject, lifeTime);
     }
 
     private void OnCollisionEnter(Collision collision)
