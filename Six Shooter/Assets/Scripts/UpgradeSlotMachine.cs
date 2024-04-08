@@ -90,7 +90,7 @@ public class UpgradeSlotMachine : MonoBehaviour
         UnityEngine.Random.InitState((int)System.DateTime.Now.Ticks);
         HashSet<int> globalSelections = new HashSet<int>();
 
-        int[] weights = { 10, 10, 10, 10, 10, 10, 10, 10, 10, 100 }; // Lower weight for the rare upgrade
+        int[] weights = { 10, 10, 10, 10, 10, 10, 10, 10, 10, 1 }; // Lower weight for the rare upgrade
 
         for (int i = 0; i < slots.Length; i++)
         {

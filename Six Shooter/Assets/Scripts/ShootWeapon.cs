@@ -15,7 +15,7 @@ public class ShootWeapon : MonoBehaviour
     [SerializeField] private GameObject _launchPosition;
     [SerializeField] private GameObject[] bulletPrefabs;
     [SerializeField] private GameObject revolver;
-    [SerializeField] private AudioSource shootSound;
+    [SerializeField] private AudioSource shootSound, frontierShootSound;
     [SerializeField] private ParticleSystem gunParticles;
     [SerializeField] private XRBaseController controller;
 
@@ -77,7 +77,7 @@ public class ShootWeapon : MonoBehaviour
                                     controller.SendHapticImpulse(shotVibIntensity, shotVibDuration);
 
                                 numShots++;
-                                shootSound.Play();
+
                                 gunParticles.Play();
                                 StartCoroutine(Pause());
                             }
@@ -192,6 +192,11 @@ public class ShootWeapon : MonoBehaviour
                     bulletSpeed = frontierJusticeSpeed;
                     break;
             }
+
+            if (bulletManager.GetBulletType(bulletManager.currentBulletSlot) == BulletType.FrontierJustice)
+                frontierShootSound.Play();
+            else
+                shootSound.Play();
 
             bullet.GetComponent<Rigidbody>().AddForce(_launchPosition.transform.forward * bulletSpeed, ForceMode.Impulse);
 

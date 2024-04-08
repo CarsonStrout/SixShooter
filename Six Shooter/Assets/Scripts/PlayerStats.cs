@@ -10,8 +10,6 @@ using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class PlayerStats : MonoBehaviour
 {
-    [SerializeField] private float movementSpeed = 1;
-    [SerializeField] private float sprintSpeed = 5;
     [SerializeField] private AudioSource playerHitSound, playerHealSound;
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private GameObject loseUI;
