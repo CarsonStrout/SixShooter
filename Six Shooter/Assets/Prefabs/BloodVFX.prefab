@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7285698203401960495}
   - component: {fileID: 423888622791164641}
   - component: {fileID: 6562401740844241428}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BloodSplash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3856,7 +3856,7 @@ ParticleSystem:
         m_RotationOrder: 4
     minKillSpeed: 0
     maxKillSpeed: 10000
-    radiusScale: 0.1
+    radiusScale: 0.01
     collidesWith:
       serializedVersion: 2
       m_Bits: 1
@@ -4906,7 +4906,7 @@ GameObject:
   - component: {fileID: 2085789264781888}
   - component: {fileID: 843701571352711523}
   - component: {fileID: 6025519488490925085}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BloodParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8695,7 +8695,7 @@ ParticleSystem:
         m_RotationOrder: 4
     minKillSpeed: 0
     maxKillSpeed: 10000
-    radiusScale: 0.1
+    radiusScale: 0.01
     collidesWith:
       serializedVersion: 2
       m_Bits: 1
@@ -9748,7 +9748,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6525504866886830227}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BloodVFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9782,7 +9782,7 @@ GameObject:
   - component: {fileID: 6963030156879691268}
   - component: {fileID: 7712625409955111574}
   - component: {fileID: 2013912432924775060}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SurfaceBlood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10805,7 +10805,7 @@ ParticleSystem:
       repeatInterval: 0.01
       probability: 1
   SizeModule:
-    enabled: 1
+    enabled: 0
     curve:
       serializedVersion: 2
       minMaxState: 1

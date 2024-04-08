@@ -172,6 +172,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPricked: 0
   prickedDuration: 5
+  bloodSpawn: {fileID: 4870235819437946805}
+  bloodVFX: {fileID: 7250063436953837709, guid: 414bcfe48f77c794f90598aad6feb330, type: 3}
 --- !u!82 &1947967472849516129
 AudioSource:
   m_ObjectHideFlags: 0

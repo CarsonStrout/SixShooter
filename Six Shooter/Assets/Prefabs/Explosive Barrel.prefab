@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5402137335151793760}
   m_Layer: 0
   m_Name: Explosive Barrel
-  m_TagString: Untagged
+  m_TagString: ExplosiveBarrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,3 +124,4 @@ MonoBehaviour:
   baseDamage: 10
   criticalChance: 0.1
   explosionVFX: {fileID: 6453977531820975577, guid: 07e99cb675ce5fa42a81ea5004620c58, type: 3}
+  bloodVFX: {fileID: 7250063436953837709, guid: 414bcfe48f77c794f90598aad6feb330, type: 3}
