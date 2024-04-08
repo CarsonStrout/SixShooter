@@ -8,7 +8,6 @@ public class ExplosiveBarrel : MonoBehaviour
     [SerializeField] private int baseDamage = 10;
     [SerializeField] private float criticalChance = 0.1f;
     [SerializeField] private GameObject explosionVFX;
-    [SerializeField] private GameObject bloodVFX;
     private bool hasExploded = false;
 
     private void OnCollisionEnter(Collision other)
@@ -39,9 +38,6 @@ public class ExplosiveBarrel : MonoBehaviour
                     collider.transform.parent.GetComponent<EnemyStats>().TakeDamage((int)damage * 2, true);
                 else
                     collider.transform.parent.GetComponent<EnemyStats>().TakeDamage((int)damage, false);
-
-                if (damage > 0)
-                    Instantiate(bloodVFX, collider.transform.GetChild(0).position, Quaternion.identity);
             }
 
             if (collider.tag == "Hat")

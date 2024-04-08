@@ -5293,7 +5293,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "A short-range \nscatter-shoot fiesta"
+  m_text: "A short-range \nscatter-shot fiesta"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 271c4a638ea930740bd61639cbf1aa86, type: 2}
   m_sharedMaterial: {fileID: 4488075044327898863, guid: 271c4a638ea930740bd61639cbf1aa86, type: 2}
@@ -7202,7 +7202,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "A short-range \nscatter-shoot fiesta"
+  m_text: "A short-range \nscatter-shot fiesta"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 271c4a638ea930740bd61639cbf1aa86, type: 2}
   m_sharedMaterial: {fileID: 4488075044327898863, guid: 271c4a638ea930740bd61639cbf1aa86, type: 2}
@@ -8923,7 +8923,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "A short-range \nscatter-shoot fiesta"
+  m_text: "A short-range \nscatter-shot fiesta"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 271c4a638ea930740bd61639cbf1aa86, type: 2}
   m_sharedMaterial: {fileID: 4488075044327898863, guid: 271c4a638ea930740bd61639cbf1aa86, type: 2}

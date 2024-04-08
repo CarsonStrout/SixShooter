@@ -9,8 +9,6 @@ public class EnemyPricked : MonoBehaviour
     [SerializeField] private float prickedDuration = 5f;
     private float damageInterval = 0.5f;
     private float nextDamageTime = 0f;
-    [SerializeField] private Transform bloodSpawn;
-    [SerializeField] private GameObject bloodVFX;
 
     private void Update()
     {
@@ -22,7 +20,6 @@ public class EnemyPricked : MonoBehaviour
             {
                 nextDamageTime = Time.time + damageInterval;
                 GetComponent<EnemyStats>().TakeDamage(1, false);
-                Instantiate(bloodVFX, bloodSpawn.position, Quaternion.identity);
             }
 
             if (prickedDuration <= 0)

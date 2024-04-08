@@ -192,6 +192,9 @@ public class EnemyAI : MonoBehaviour
 
     void DrunkUpdate()
     {
+        if (brawlParticles.isPlaying)
+            brawlParticles.Stop();
+
         if (drunkParticles.isStopped)
             drunkParticles.Play();
 
@@ -217,6 +220,9 @@ public class EnemyAI : MonoBehaviour
 
     void BrawlUpdate()
     {
+        if (drunkParticles.isPlaying)
+            drunkParticles.Stop();
+
         if (brawlParticles.isStopped)
             brawlParticles.Play();
 

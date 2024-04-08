@@ -6,7 +6,6 @@ public class CactusController : MonoBehaviour
 {
     [SerializeField] private GameObject bloodVFX;
     [SerializeField] private int baseDamage = 5;
-    [SerializeField] private int damageOverTime = 1;
 
     private void Start()
     {
