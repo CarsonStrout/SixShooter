@@ -10,7 +10,8 @@ public class EnemyAI : MonoBehaviour
         Chase,
         Attack,
         Retreat,
-        Drunk
+        Drunk,
+        Brawl
     }
 
     public State currentState;
@@ -19,6 +20,8 @@ public class EnemyAI : MonoBehaviour
     public float retreatSpeed = 5f;
     public float drunkSpeed = 1f;
     public float drunkTimer = 5f;
+    public float saloonBrawlTimer = 10f;
+    private float saloonBrawlTime;
     private float drunkTime;
     public float attackRange = 15f;
     public float minimumDistance = 5f; // Minimum distance to trigger retreat
@@ -28,7 +31,7 @@ public class EnemyAI : MonoBehaviour
 
     // Shooting
     [SerializeField] private GameObject launchPosition;
-    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private GameObject bulletPrefab, friendlyFireBulletPrefab;
     [SerializeField] private GameObject revolver;
     [SerializeField] private AudioSource shootSound;
     [SerializeField] private ParticleSystem gunParticles;
@@ -39,8 +42,9 @@ public class EnemyAI : MonoBehaviour
     private float reloadTime = 1f;
     private float timer;
     private bool shootingPaused = false;
+    [SerializeField] private GameObject enemyBody;
     [SerializeField] private ParticleSystem spawnParticles;
-    [SerializeField] private ParticleSystem drunkParticles;
+    [SerializeField] private ParticleSystem drunkParticles, brawlParticles;
     private bool canSpawn = true;
     [SerializeField] private AudioSource spawnAudio;
 
@@ -82,6 +86,9 @@ public class EnemyAI : MonoBehaviour
                 break;
             case State.Drunk:
                 DrunkUpdate();
+                break;
+            case State.Brawl:
+                BrawlUpdate();
                 break;
         }
     }
@@ -208,9 +215,103 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    void BrawlUpdate()
+    {
+        if (brawlParticles.isStopped)
+            brawlParticles.Play();
+
+        agent.isStopped = false;
+
+        // Target nearest enemy to shoot at
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject nearestEnemy = null;
+        float shortestDistance = Mathf.Infinity;
+
+        foreach (GameObject enemy in enemies)
+        {
+            if (enemy != enemyBody) // Ensure not to target itself
+            {
+                float distance = Vector3.Distance(transform.position, enemy.transform.position);
+                if (distance < shortestDistance)
+                {
+                    shortestDistance = distance;
+                    nearestEnemy = enemy;
+                }
+            }
+        }
+
+        if (nearestEnemy != null && nearestEnemy != enemyBody)
+        {
+            agent.destination = nearestEnemy.transform.position;
+            // look at enemy
+            transform.LookAt(nearestEnemy.transform.position);
+
+            // Rotate the gun towards the target enemy
+            Vector3 directionToEnemy = nearestEnemy.transform.GetChild(0).position - revolver.transform.position;
+            Quaternion lookRotation = Quaternion.LookRotation(directionToEnemy);
+            revolver.transform.rotation = Quaternion.Slerp(revolver.transform.rotation, lookRotation, Time.deltaTime * 5f);
+
+            if (Vector3.Distance(transform.position, nearestEnemy.transform.position) < attackRange)
+            {
+                if (!isReloading)
+                {
+                    if (ammoCount > 0)
+                    {
+                        if (!shootingPaused)
+                        {
+                            shootingPaused = true;
+                            FireAtEnemy();
+                            ammoCount--;
+                            shootSound.Play();
+                            gunParticles.Play();
+                            StartCoroutine(Pause());
+                        }
+                    }
+                    else
+                    {
+                        Reload();
+                    }
+                }
+                else
+                {
+                    revolver.gameObject.transform.Rotate(-360 * 6f * Time.deltaTime, 0, 0);
+                    timer += Time.deltaTime;
+
+                    if (timer > reloadTime)
+                    {
+                        isReloading = false;
+                        ammoCount = maxAmmo;
+                        timer = 0;
+                        revolver.transform.localRotation = Quaternion.identity;
+                    }
+                }
+            }
+
+        }
+
+        saloonBrawlTime += Time.deltaTime;
+
+        if (saloonBrawlTime > saloonBrawlTimer)
+        {
+            brawlParticles.Stop();
+            currentState = State.Chase;
+            saloonBrawlTime = 0;
+        }
+    }
+
     private void Fire()
     {
         GameObject bullet = Instantiate(bulletPrefab) as GameObject;
+        bullet.SetActive(true);
+        bullet.transform.position = launchPosition.transform.position;
+
+        bullet.transform.rotation = launchPosition.transform.rotation;
+        bullet.GetComponent<Rigidbody>().AddForce(launchPosition.transform.forward * 25f, ForceMode.Impulse);
+    }
+
+    private void FireAtEnemy()
+    {
+        GameObject bullet = Instantiate(friendlyFireBulletPrefab) as GameObject;
         bullet.SetActive(true);
         bullet.transform.position = launchPosition.transform.position;
 

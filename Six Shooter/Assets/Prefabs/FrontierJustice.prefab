@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 4171898224898332040}
   - component: {fileID: 4163324432188768228}
   - component: {fileID: 6690737941839040819}
-  - component: {fileID: 8815914423054919958}
   - component: {fileID: 7850245777656856415}
+  - component: {fileID: 7059751263340930354}
   m_Layer: 11
   m_Name: FrontierJustice
   m_TagString: Bullet
@@ -135,23 +135,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &8815914423054919958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4942179030738579388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43aec5fe7a3877840be474c16477f043, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ricochetPrefab: {fileID: 4430275869127531485, guid: ecdb755a2027f344cbbe654bd3d68aff, type: 3}
-  bloodVFX: {fileID: 7250063436953837709, guid: 92d1ec991f380e9498022f29bbdcde4b, type: 3}
-  baseDamage: 15
-  criticalDamage: 30
-  criticalChance: 0.05
 --- !u!96 &7850245777656856415
 TrailRenderer:
   serializedVersion: 3
@@ -256,3 +239,16 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &7059751263340930354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4942179030738579388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec6dec56315debc43a0284e4d2e7ff9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ricochetPrefab: {fileID: 4430275869127531485, guid: ecdb755a2027f344cbbe654bd3d68aff, type: 3}

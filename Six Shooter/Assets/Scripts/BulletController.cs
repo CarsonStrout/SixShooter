@@ -9,7 +9,7 @@ public class BulletController : MonoBehaviour
     [SerializeField] private GameObject bloodVFX;
     [SerializeField] private int baseDamage = 5;
     [SerializeField] private int criticalDamage = 10;
-    [SerializeField] private float criticalChance = 0.2f;
+    [SerializeField] private float criticalChance = 0.05f;
 
     private void Start()
     {

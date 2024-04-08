@@ -31,7 +31,8 @@ public class MoonshineController : MonoBehaviour
             {
                 collider.transform.parent.GetComponent<EnemyStats>().TakeDamage(baseDamage, false);
 
-                collider.transform.parent.GetComponent<EnemyAI>().currentState = EnemyAI.State.Drunk;
+                if (collider.transform.parent.GetComponent<EnemyStats>().EnemyHealth > 0)
+                    collider.transform.parent.GetComponent<EnemyAI>().currentState = EnemyAI.State.Drunk;
             }
         }
 

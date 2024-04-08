@@ -75,6 +75,19 @@ public class BulletManager : MonoBehaviour
         bulletType[4] = BulletType.Regular;
         bulletType[5] = BulletType.Regular;
     }
+
+    public void IconsVisible(bool visible)
+    {
+        BulletIcons bulletIcons = FindObjectOfType<BulletIcons>();
+
+        if (bulletIcons != null)
+        {
+            for (int i = 0; i < bulletIcons.bulletIcons.Length; i++)
+            {
+                bulletIcons.bulletIcons[i].enabled = visible;
+            }
+        }
+    }
 }
 
 public enum BulletType

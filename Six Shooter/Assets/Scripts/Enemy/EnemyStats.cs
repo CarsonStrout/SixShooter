@@ -9,7 +9,7 @@ public class EnemyStats : MonoBehaviour
     [SerializeField] private DamageFlash damageFlash;
     [SerializeField] private AudioSource enemyHitSound;
     [SerializeField] private AudioSource enemyDeathSound;
-    [SerializeField] private ParticleSystem enemyDeathParticles, drunkParticles;
+    [SerializeField] private ParticleSystem enemyDeathParticles, drunkParticles, brawlParticles;
     [SerializeField] private GameObject[] visualComponents;
     [SerializeField] private EnemyAI enemyAI;
     [SerializeField] private GameObject damagePopup;
@@ -62,7 +62,9 @@ public class EnemyStats : MonoBehaviour
 
         damageFlash.Flash();
 
-        GameObject popup = Instantiate(damagePopup, damagePopupPosition.position, Quaternion.identity);
+        // GameObject popup = Instantiate(damagePopup, damagePopupPosition.position, Quaternion.identity);
+        // instantiate damage popup with a bit of randomization to make it look more natural
+        GameObject popup = Instantiate(damagePopup, damagePopupPosition.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0), Quaternion.identity);
 
         popup.transform.GetChild(0).GetComponent<DamagePopup>().SetDamage(damage, isCrit);
     }
@@ -73,6 +75,9 @@ public class EnemyStats : MonoBehaviour
 
         if (drunkParticles.isPlaying)
             drunkParticles.Stop();
+
+        if (brawlParticles.isPlaying)
+            brawlParticles.Stop();
 
         enemyAI.enabled = false;
 

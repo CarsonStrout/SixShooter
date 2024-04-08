@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 4171898224898332040}
   - component: {fileID: 4163324432188768228}
   - component: {fileID: 6690737941839040819}
-  - component: {fileID: 8815914423054919958}
+  - component: {fileID: 5707904572633440678}
   - component: {fileID: 7850245777656856415}
-  m_Layer: 11
-  m_Name: Shotgun
+  m_Layer: 9
+  m_Name: FriendlyFireBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,7 +100,7 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 2820
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -127,7 +127,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 2820
+    m_Bits: 256
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
@@ -135,7 +135,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &8815914423054919958
+--- !u!114 &5707904572633440678
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,14 +144,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4942179030738579388}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43aec5fe7a3877840be474c16477f043, type: 3}
+  m_Script: {fileID: 11500000, guid: 39354a1764a50a54d854cc80c3cc4754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ricochetPrefab: {fileID: 4430275869127531485, guid: ecdb755a2027f344cbbe654bd3d68aff, type: 3}
+  ricochetPrefab: {fileID: 1203628507426754104, guid: ecdb755a2027f344cbbe654bd3d68aff, type: 3}
   bloodVFX: {fileID: 7250063436953837709, guid: 92d1ec991f380e9498022f29bbdcde4b, type: 3}
-  baseDamage: 5
-  criticalDamage: 10
-  criticalChance: 0.05
+  damage: 2
+  critDamage: 5
+  critChance: 0.05
 --- !u!96 &7850245777656856415
 TrailRenderer:
   serializedVersion: 3

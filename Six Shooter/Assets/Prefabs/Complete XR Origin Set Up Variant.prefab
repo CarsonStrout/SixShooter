@@ -2527,7 +2527,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9a647c019cc599c41b69c4ee3dfb5fa7, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5975,7 +5975,7 @@ MonoBehaviour:
   - {fileID: 4942179030738579388, guid: ef485464cd2b04c42877558b30f758e2, type: 3}
   - {fileID: 4942179030738579388, guid: 6e040fdfb32451b4b8198e7d4d3505a2, type: 3}
   - {fileID: 4942179030738579388, guid: 255e89f72d4cbfd4faac3f043c30a6ae, type: 3}
-  - {fileID: 4942179030738579388, guid: 608d9d390574a2e4f83e43f25c05533f, type: 3}
+  - {fileID: 4942179030738579388, guid: d755c04303afd754eb58e041700c0a93, type: 3}
   - {fileID: 4942179030738579388, guid: 4ebf485f7a30e934895387d9958f6f2f, type: 3}
   - {fileID: 4942179030738579388, guid: 615cbdedf10b76b4e86f6be4a2a9e6df, type: 3}
   revolver: {fileID: 3707824840212177965}

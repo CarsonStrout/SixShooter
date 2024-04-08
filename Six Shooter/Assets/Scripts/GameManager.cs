@@ -118,6 +118,8 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
+        BulletManager.Instance.IconsVisible(useAmmo);
+
         OnGameStateChange?.Invoke(newState);
     }
 

@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 2125519881454142130}
   - component: {fileID: 7842032699028393561}
   - component: {fileID: 4171898224898332040}
-  - component: {fileID: 4656078577498764269}
   - component: {fileID: 6690737941839040819}
-  - component: {fileID: 8815914423054919958}
+  - component: {fileID: -4999634976857595775}
   - component: {fileID: 7850245777656856415}
+  - component: {fileID: 171419838644252823}
   m_Layer: 11
   m_Name: CactusBullet
   m_TagString: Bullet
@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -87,28 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4656078577498764269
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4942179030738579388}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: f2fb1b8f48ea9454cad029030faad0a3, type: 3}
 --- !u!54 &6690737941839040819
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -136,7 +114,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &8815914423054919958
+--- !u!114 &-4999634976857595775
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,14 +123,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4942179030738579388}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43aec5fe7a3877840be474c16477f043, type: 3}
+  m_Script: {fileID: 11500000, guid: bc1ea538f8cad6b41b83a7c468ec69bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ricochetPrefab: {fileID: 4430275869127531485, guid: ecdb755a2027f344cbbe654bd3d68aff, type: 3}
   bloodVFX: {fileID: 7250063436953837709, guid: 92d1ec991f380e9498022f29bbdcde4b, type: 3}
   baseDamage: 5
-  criticalDamage: 10
-  criticalChance: 0.05
+  damageOverTime: 1
 --- !u!96 &7850245777656856415
 TrailRenderer:
   serializedVersion: 3
@@ -257,3 +233,26 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!136 &171419838644252823
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4942179030738579388}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.22
+  m_Height: 1.3299866
+  m_Direction: 1
+  m_Center: {x: -0.035766125, y: 0.6649933, z: 0.00948143}

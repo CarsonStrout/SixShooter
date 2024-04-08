@@ -30,7 +30,6 @@ public class ButtonController : MonoBehaviour
         }
 
         musicManager = GameObject.FindGameObjectWithTag("MusicManager").GetComponent<MusicManager>();
-
     }
 
     private void Start()

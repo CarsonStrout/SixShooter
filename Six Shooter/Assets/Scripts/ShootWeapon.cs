@@ -198,6 +198,32 @@ public class ShootWeapon : MonoBehaviour
             else
                 shootSound.Play();
 
+            if (bulletManager.GetBulletType(bulletManager.currentBulletSlot) == BulletType.Shotgun)
+            {
+                // Define the spread angle (e.g., 5 degrees)
+                float spreadAngle = 5f;
+
+                // Number of additional bullets per side
+                int additionalBulletsPerSide = 2;
+
+                for (int i = -additionalBulletsPerSide; i <= additionalBulletsPerSide; i++)
+                {
+                    GameObject extraBullet = Instantiate(bulletPrefab) as GameObject;
+                    extraBullet.SetActive(true);
+                    extraBullet.transform.position = _launchPosition.transform.position;
+                    extraBullet.transform.rotation = _launchPosition.transform.rotation;
+
+                    // Calculate the rotation for each bullet in the spread
+                    float rotationAngle = i * spreadAngle;
+                    Quaternion spreadRotation = Quaternion.Euler(0, rotationAngle, 0);
+
+                    // Apply the rotation to the bullet's direction
+                    Vector3 spreadDirection = spreadRotation * _launchPosition.transform.forward;
+
+                    extraBullet.GetComponent<Rigidbody>().AddForce(spreadDirection * shotgunSpeed, ForceMode.Impulse);
+                }
+            }
+
             bullet.GetComponent<Rigidbody>().AddForce(_launchPosition.transform.forward * bulletSpeed, ForceMode.Impulse);
 
             int bulletIndex = bulletManager.currentBulletSlot;
@@ -211,6 +237,8 @@ public class ShootWeapon : MonoBehaviour
             bullet.SetActive(true);
             bullet.transform.position = _launchPosition.transform.position;
             bullet.transform.rotation = _launchPosition.transform.rotation;
+
+            shootSound.Play();
 
             if (ammoCount < maxAmmo)
             {
