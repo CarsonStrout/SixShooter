@@ -42,7 +42,7 @@ public class ExplosiveBarrel : MonoBehaviour
 
             if (collider.tag == "Hat")
             {
-                if (damage > 0)
+                if (damage > 5)
                 {
                     collider.gameObject.GetComponent<BoxCollider>().enabled = false;
                     collider.gameObject.GetComponent<MeshRenderer>().enabled = false;
@@ -51,7 +51,8 @@ public class ExplosiveBarrel : MonoBehaviour
             }
 
             if (collider.tag == "ExplosiveBarrel" && !collider.GetComponent<ExplosiveBarrel>().hasExploded)
-                collider.GetComponent<ExplosiveBarrel>().Explode();
+                if (damage > 5)
+                    collider.GetComponent<ExplosiveBarrel>().Explode();
         }
 
         Destroy(gameObject);

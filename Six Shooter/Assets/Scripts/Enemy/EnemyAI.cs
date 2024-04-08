@@ -50,6 +50,7 @@ public class EnemyAI : MonoBehaviour
 
     [Space(5)]
     [SerializeField] private GameObject[] components;
+    [SerializeField] private AudioSource footstepAudio;
 
     private void Start()
     {
@@ -120,6 +121,9 @@ public class EnemyAI : MonoBehaviour
 
     void ChaseUpdate()
     {
+        if (!footstepAudio.isPlaying)
+            PlayFootstepAudio(1.2f, 1.5f);
+
         agent.isStopped = false;
         agent.destination = playerTransform.position;
         agent.speed = chaseSpeed;
@@ -139,6 +143,10 @@ public class EnemyAI : MonoBehaviour
         if (CanSeePlayer())
         {
             agent.isStopped = true;
+
+            if (footstepAudio.isPlaying)
+                footstepAudio.Stop();
+
             transform.LookAt(playerTransform.position); // Enemy looks at the player
 
             // Rotate the gun towards the player
@@ -200,6 +208,9 @@ public class EnemyAI : MonoBehaviour
 
         agent.isStopped = false;
 
+        if (!footstepAudio.isPlaying)
+            PlayFootstepAudio(1.2f, 1.5f);
+
         Vector3 randomDirection = Random.insideUnitSphere * 10f;
         randomDirection += transform.position;
         NavMeshHit hit;
@@ -227,6 +238,9 @@ public class EnemyAI : MonoBehaviour
             brawlParticles.Play();
 
         agent.isStopped = false;
+
+        if (!footstepAudio.isPlaying)
+            PlayFootstepAudio(1.2f, 1.5f);
 
         // Target nearest enemy to shoot at
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -362,6 +376,9 @@ public class EnemyAI : MonoBehaviour
         Vector3 retreatDirection = transform.position - playerTransform.position;
         Vector3 retreatPosition = transform.position + retreatDirection.normalized * retreatSpeed * Time.deltaTime;
 
+        if (!footstepAudio.isPlaying)
+            PlayFootstepAudio(0.8f, 1.2f);
+
         agent.SetDestination(retreatPosition);
         agent.speed = retreatSpeed;
 
@@ -374,5 +391,11 @@ public class EnemyAI : MonoBehaviour
         {
             currentState = State.Chase;
         }
+    }
+
+    private void PlayFootstepAudio(float minPitch, float maxPitch)
+    {
+        footstepAudio.pitch = Random.Range(minPitch, maxPitch);
+        footstepAudio.Play();
     }
 }

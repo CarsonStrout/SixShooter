@@ -24,6 +24,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private GameObject completeLevelUI;
     [SerializeField] private TextMeshProUGUI enemiesRemainingText;
     [SerializeField] private MeshCollider groundCollider;
+    [SerializeField] private AudioSource fluteMotif, fluteMotif2;
 
     private int enemyAmount;
 
@@ -48,6 +49,8 @@ public class WaveSpawner : MonoBehaviour
 
         waveText.text = "Wave " + (waveNumber + 1);
         waveUI.SetActive(true);
+
+        fluteMotif.Play();
 
         yield return new WaitForSeconds(5);
 
@@ -115,6 +118,9 @@ public class WaveSpawner : MonoBehaviour
 
                     levelDone = true;
                     completeLevelUI.SetActive(true);
+
+                    fluteMotif2.Play();
+
                     GameManager.Instance.UpdateGameState(GameState.CompleteLevel);
                 }
                 else

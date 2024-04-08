@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8805380373309652548}
   - component: {fileID: 8751274298333199013}
   - component: {fileID: 4687839620330256503}
+  - component: {fileID: 2480531365732418896}
   - component: {fileID: 5402137335151793760}
   m_Layer: 0
   m_Name: Explosive Barrel
@@ -98,7 +99,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -108,6 +109,33 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!54 &2480531365732418896
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573290582353115568}
+  serializedVersion: 4
+  m_Mass: 50
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 512
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &5402137335151793760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,4 +152,3 @@ MonoBehaviour:
   baseDamage: 10
   criticalChance: 0.1
   explosionVFX: {fileID: 6453977531820975577, guid: 07e99cb675ce5fa42a81ea5004620c58, type: 3}
-  bloodVFX: {fileID: 7250063436953837709, guid: 414bcfe48f77c794f90598aad6feb330, type: 3}

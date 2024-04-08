@@ -9,6 +9,7 @@ public class EnemyStats : MonoBehaviour
     [SerializeField] private DamageFlash damageFlash;
     [SerializeField] private AudioSource enemyHitSound;
     [SerializeField] private AudioSource enemyDeathSound;
+    [SerializeField] private AudioSource footstepSound;
     [SerializeField] private ParticleSystem enemyDeathParticles, drunkParticles, brawlParticles;
     [SerializeField] private GameObject[] visualComponents;
     [SerializeField] private EnemyAI enemyAI;
@@ -62,9 +63,15 @@ public class EnemyStats : MonoBehaviour
 
         damageFlash.Flash();
 
-        // GameObject popup = Instantiate(damagePopup, damagePopupPosition.position, Quaternion.identity);
         // instantiate damage popup with a bit of randomization to make it look more natural
         GameObject popup = Instantiate(damagePopup, damagePopupPosition.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0), Quaternion.identity);
+
+        // Calculate the rotation based on the X offset.
+        float xOffset = popup.transform.position.x - damagePopupPosition.position.x;
+        float zRotation = xOffset * 60;
+
+        // Apply the rotation to the popup.
+        popup.transform.rotation = Quaternion.Euler(0, 0, zRotation);
 
         popup.transform.GetChild(0).GetComponent<DamagePopup>().SetDamage(damage, isCrit);
     }
@@ -72,6 +79,9 @@ public class EnemyStats : MonoBehaviour
     private void Died()
     {
         isDead = true;
+
+        if (footstepSound.isPlaying)
+            footstepSound.Stop();
 
         if (drunkParticles.isPlaying)
             drunkParticles.Stop();

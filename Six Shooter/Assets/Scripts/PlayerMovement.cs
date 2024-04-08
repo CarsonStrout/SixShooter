@@ -12,10 +12,13 @@ public class PlayerMovement : MonoBehaviour
     [Space(5)]
     [SerializeField] private DynamicMoveProvider dynamicMoveProvider;
     private InputData inputData;
+    public bool isSprinting;
 
     private void Start()
     {
         inputData = GetComponent<InputData>();
+
+        isSprinting = false;
     }
 
     private void Update()
@@ -25,9 +28,15 @@ public class PlayerMovement : MonoBehaviour
             if (_triggerButtonPressed)
             {
                 dynamicMoveProvider.moveSpeed = sprintSpeed;
+
+                isSprinting = true;
             }
             else
+            {
                 dynamicMoveProvider.moveSpeed = movementSpeed;
+
+                isSprinting = false;
+            }
         }
     }
 }

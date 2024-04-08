@@ -90,7 +90,7 @@ public class ShootWeapon : MonoBehaviour
             else
             {
                 // Threshold for detecting fast upward motion
-                float upwardVelocityThreshold = 2.0f;
+                float upwardVelocityThreshold = 1.5f;
 
                 if (_inputData._rightController.TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 velocity))
                 {
