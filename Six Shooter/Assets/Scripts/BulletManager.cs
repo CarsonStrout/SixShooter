@@ -80,9 +80,14 @@ public class BulletManager : MonoBehaviour
 public enum BulletType
 {
     Regular,
-    BigBullet,
+    SheriffsBadge,
     PokerCard,
     Dynamite,
     Moonshine,
-    Lasso
+    Lasso,
+    SaloonBrawl,
+    Cactus,
+    Shotgun,
+    WantedPoster,
+    FrontierJustice
 }

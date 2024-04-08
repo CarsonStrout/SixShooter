@@ -30,7 +30,9 @@ public class ShootWeapon : MonoBehaviour
     private bool __shootingPaused = false;
     private bool triggerDown;
     private InputData _inputData;
-    [SerializeField] private float regularBulletSpeed = 25f, bigBulletSpeed = 4f, pokerCardSpeed = 25f, dynamiteSpeed = 10f, moonshineSpeed = 10f, lassoSpeed = 10f;
+    [SerializeField]
+    private float regularBulletSpeed = 25f, sheriffsBadgeSpeed = 25f, pokerCardSpeed = 25f, dynamiteSpeed = 10f, moonshineSpeed = 10f,
+        lassoSpeed = 15f, saloonBrawlSpeed = 15f, cactusSpeed = 25f, shotgunSpeed = 25f, wantedPosterSpeed = 15f, frontierJusticeSpeed = 35f;
 
     [Space(5)]
     [Header("Controller Vibration")]
@@ -159,8 +161,8 @@ public class ShootWeapon : MonoBehaviour
                 case BulletType.Regular:
                     bulletSpeed = regularBulletSpeed;
                     break;
-                case BulletType.BigBullet:
-                    bulletSpeed = bigBulletSpeed;
+                case BulletType.SheriffsBadge:
+                    bulletSpeed = sheriffsBadgeSpeed;
                     break;
                 case BulletType.PokerCard:
                     bulletSpeed = pokerCardSpeed;
@@ -173,6 +175,21 @@ public class ShootWeapon : MonoBehaviour
                     break;
                 case BulletType.Lasso:
                     bulletSpeed = lassoSpeed;
+                    break;
+                case BulletType.SaloonBrawl:
+                    bulletSpeed = saloonBrawlSpeed;
+                    break;
+                case BulletType.Cactus:
+                    bulletSpeed = cactusSpeed;
+                    break;
+                case BulletType.Shotgun:
+                    bulletSpeed = shotgunSpeed;
+                    break;
+                case BulletType.WantedPoster:
+                    bulletSpeed = wantedPosterSpeed;
+                    break;
+                case BulletType.FrontierJustice:
+                    bulletSpeed = frontierJusticeSpeed;
                     break;
             }
 

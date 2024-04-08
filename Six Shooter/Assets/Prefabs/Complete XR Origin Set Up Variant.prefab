@@ -1166,11 +1166,16 @@ MonoBehaviour:
   - {fileID: 1416207796695459826}
   bulletSprites:
   - {fileID: 21300000, guid: 7c8003c76c6d3db42add91376687e67c, type: 3}
-  - {fileID: 21300000, guid: 3c8e86917221c744cac17e158b50aabf, type: 3}
+  - {fileID: 21300000, guid: d57e3b0645da48d4992032b4a537479d, type: 3}
   - {fileID: 21300000, guid: f25d91a21935f19499f10da84784be63, type: 3}
   - {fileID: 21300000, guid: 3f719f27840a68b4f8837dafb5ee3cbc, type: 3}
   - {fileID: 21300000, guid: 40efd6575f806d7438ed1c7ade2b1cf1, type: 3}
   - {fileID: 21300000, guid: 87fc01134970769478a432ad7bc8cf91, type: 3}
+  - {fileID: 21300000, guid: dad3fa2ead080dc42beab82d52997aef, type: 3}
+  - {fileID: 21300000, guid: 4ae40dcc8110b1340ab9daf6b1eedc6d, type: 3}
+  - {fileID: 21300000, guid: d118e39b9dd7c4e48be0f6cbea0ef6e0, type: 3}
+  - {fileID: 21300000, guid: 06ddedde47cab5d439156a69ad72dd08, type: 3}
+  - {fileID: 21300000, guid: a493a16074182234fa71435cbbb8187e, type: 3}
 --- !u!1 &3557057782989833569
 GameObject:
   m_ObjectHideFlags: 0
@@ -5834,11 +5839,16 @@ MonoBehaviour:
   _launchPosition: {fileID: 1620634821540940032}
   bulletPrefabs:
   - {fileID: 4942179030738579388, guid: 7749864cb8919854399e0a557b24cc48, type: 3}
-  - {fileID: 4942179030738579388, guid: 615cbdedf10b76b4e86f6be4a2a9e6df, type: 3}
+  - {fileID: 4942179030738579388, guid: d27161a33aded8f4eaceb6f03d0b9f88, type: 3}
   - {fileID: 4942179030738579388, guid: 681ea635501e0734ba1e5d6f9511adfd, type: 3}
   - {fileID: 4942179030738579388, guid: 75bd58f0c542724439d32224d82d14fc, type: 3}
   - {fileID: 4942179030738579388, guid: c580e0bfd3092714ba2fd82f62529728, type: 3}
   - {fileID: 4942179030738579388, guid: ef485464cd2b04c42877558b30f758e2, type: 3}
+  - {fileID: 4942179030738579388, guid: 6e040fdfb32451b4b8198e7d4d3505a2, type: 3}
+  - {fileID: 4942179030738579388, guid: 255e89f72d4cbfd4faac3f043c30a6ae, type: 3}
+  - {fileID: 4942179030738579388, guid: 608d9d390574a2e4f83e43f25c05533f, type: 3}
+  - {fileID: 4942179030738579388, guid: 4ebf485f7a30e934895387d9958f6f2f, type: 3}
+  - {fileID: 4942179030738579388, guid: 615cbdedf10b76b4e86f6be4a2a9e6df, type: 3}
   revolver: {fileID: 3707824840212177965}
   shootSound: {fileID: 812319768258975094}
   gunParticles: {fileID: 3051946256509075921}
@@ -5846,11 +5856,16 @@ MonoBehaviour:
   maxAmmo: 6
   reloadTime: 0.5
   regularBulletSpeed: 25
-  bigBulletSpeed: 4
+  sheriffsBadgeSpeed: 25
   pokerCardSpeed: 25
   dynamiteSpeed: 15
   moonshineSpeed: 10
   lassoSpeed: 10
+  saloonBrawlSpeed: 15
+  cactusSpeed: 25
+  shotgunSpeed: 25
+  wantedPosterSpeed: 15
+  frontierJusticeSpeed: 35
   shotVibIntensity: 1
   shotVibDuration: 0.25
   reloadVibIntensity: 0.25

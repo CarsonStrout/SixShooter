@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -86,19 +87,39 @@ public class UpgradeSlotMachine : MonoBehaviour
 
     private void RandomizeUniqueFinalSelections()
     {
-        HashSet<int> usedSelections = new HashSet<int>();
+        UnityEngine.Random.InitState((int)System.DateTime.Now.Ticks);
+        HashSet<int> globalSelections = new HashSet<int>();
+
+        int[] weights = { 10, 10, 10, 10, 10, 10, 10, 10, 10, 100 }; // Lower weight for the rare upgrade
+
         for (int i = 0; i < slots.Length; i++)
         {
-            int selection;
-            do
+            // Create a weighted list of available selections
+            List<int> weightedSelections = new List<int>();
+            for (int j = 0; j < weights.Length; j++)
             {
-                selection = UnityEngine.Random.Range(0, slots[i].transform.childCount);
-            } while (usedSelections.Contains(selection));
+                if (!globalSelections.Contains(j))
+                {
+                    weightedSelections.AddRange(Enumerable.Repeat(j, weights[j]));
+                }
+            }
 
-            usedSelections.Add(selection);
-            selectedUpgrades[i] = selection;
+            // Shuffle the weighted selections
+            for (int j = weightedSelections.Count - 1; j > 0; j--)
+            {
+                int swapIndex = UnityEngine.Random.Range(0, j + 1);
+                int temp = weightedSelections[j];
+                weightedSelections[j] = weightedSelections[swapIndex];
+                weightedSelections[swapIndex] = temp;
+            }
+
+            // Select the first element from the shuffled list and add it to the global selections
+            int selected = weightedSelections[0];
+            selectedUpgrades[i] = selected;
+            globalSelections.Add(selected);
         }
 
+        // Activate the selected upgrades
         for (int i = 0; i < slots.Length; i++)
         {
             foreach (Transform child in slots[i].transform)
@@ -106,9 +127,13 @@ public class UpgradeSlotMachine : MonoBehaviour
                 child.gameObject.SetActive(false);
             }
             slots[i].transform.GetChild(selectedUpgrades[i]).gameObject.SetActive(true);
-
-            // Enable text for final selection
             slots[i].transform.GetChild(selectedUpgrades[i]).GetChild(0).gameObject.SetActive(true);
+
+            // if (slots[i].transform.GetChild(selectedUpgrades[i]).name == "Frontier Justice Upgrade")
+            // {
+            //     slots[i].transform.GetChild(selectedUpgrades[i]).GetChild(1).gameObject.SetActive(true);
+            //     slots[i].transform.GetChild(selectedUpgrades[i]).GetChild(1).gameObject.GetComponent<AudioSource>().Play();
+            // }
         }
     }
 
@@ -117,6 +142,12 @@ public class UpgradeSlotMachine : MonoBehaviour
         for (int i = 0; i < slots.Length; i++)
         {
             slots[i].transform.gameObject.GetComponent<BoxCollider>().enabled = true;
+
+            if (slots[i].transform.GetChild(selectedUpgrades[i]).name == "Frontier Justice Upgrade")
+            {
+                slots[i].transform.GetChild(selectedUpgrades[i]).GetChild(1).gameObject.SetActive(true);
+                slots[i].transform.GetChild(selectedUpgrades[i]).GetChild(1).gameObject.GetComponent<AudioSource>().Play();
+            }
         }
 
         Debug.Log("Upgrade Selection Enabled");
@@ -136,9 +167,14 @@ public class UpgradeSlotMachine : MonoBehaviour
 
 public enum UpgradeOptions
 {
-    BigBullet,
+    SheriffsBadge,
     PokerCard,
     Dynamite,
     Moonshine,
-    Lasso
+    Lasso,
+    SaloonBrawl,
+    Cactus,
+    Shotgun,
+    WantedPoster,
+    FrontierJustice
 }
