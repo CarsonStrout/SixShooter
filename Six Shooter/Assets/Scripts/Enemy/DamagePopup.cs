@@ -28,7 +28,7 @@ public class DamagePopup : MonoBehaviour
 
             if (textMeshColor.a < 0)
             {
-                Destroy(gameObject);
+                Destroy(gameObject.transform.parent.gameObject);
             }
         }
     }

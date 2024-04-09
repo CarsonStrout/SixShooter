@@ -50,7 +50,7 @@ public class PlayerStats : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         foreach (GameObject enemy in enemies)
-            Destroy(enemy);
+            Destroy(enemy.transform.parent.gameObject);
 
         foreach (GameObject ui in otherUIs)
             ui.SetActive(false);
