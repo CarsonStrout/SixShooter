@@ -1869,7 +1869,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainButtons: {fileID: 0}
   playButtons: {fileID: 0}
-  waveMusic: []
+  waveMusic:
+  - {fileID: 8300000, guid: 4ce35d7b0cafd2c47ac3e777e3318397, type: 3}
+  - {fileID: 8300000, guid: 77d5306a1e38a974ba8df86213eeab48, type: 3}
+  - {fileID: 8300000, guid: 59e804797ea384d46ba9bc2605fd472f, type: 3}
+  - {fileID: 8300000, guid: c6bc1671ff090464cb7acca23cc90453, type: 3}
+  - {fileID: 8300000, guid: b87c644b079ac0145a4775dca05179fb, type: 3}
   targetMusic: {fileID: 8300000, guid: 63fd218e963d760449b581e5fccb0ab0, type: 3}
   menuMusic: {fileID: 8300000, guid: ff71f0a2197a7ae47a9e041a5fcb5924, type: 3}
 --- !u!4 &424075954
@@ -3123,10 +3128,18 @@ MonoBehaviour:
   useAmmo: 0
   upgradeSlotMachine: {fileID: 962023350}
   waveSpawner: {fileID: 771616731}
+  waveSceneNames:
+  - Cemetery
+  - Canyon
+  - Town
+  - Mine
+  - Forest
   waveScenes:
   - Cemetery
   - Canyon
   - Town
+  - Mine
+  - Forest
 --- !u!4 &748042641
 Transform:
   m_ObjectHideFlags: 0
@@ -3591,6 +3604,10 @@ PrefabInstance:
     - target: {fileID: 5860442550155527701, guid: 491d815fcb36f6e4eb7891cf7fd431b1, type: 3}
       propertyPath: m_Name
       value: UpgradeSlotMachine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5860442550155527701, guid: 491d815fcb36f6e4eb7891cf7fd431b1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8252314929668281336, guid: 491d815fcb36f6e4eb7891cf7fd431b1, type: 3}
       propertyPath: playerHead
@@ -6821,7 +6838,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level Complete
+  m_text: Level 1 Complete
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 271c4a638ea930740bd61639cbf1aa86, type: 2}
   m_sharedMaterial: {fileID: 4488075044327898863, guid: 271c4a638ea930740bd61639cbf1aa86, type: 2}

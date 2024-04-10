@@ -32,17 +32,20 @@ public class ButtonController : MonoBehaviour
         musicManager = GameObject.FindGameObjectWithTag("MusicManager").GetComponent<MusicManager>();
     }
 
-    private void Start()
-    {
-        InitializeLevelMusicMap();
-    }
+    // private void Start()
+    // {
+    //     InitializeLevelMusicMap();
+    // }
 
     private void InitializeLevelMusicMap()
     {
-        foreach (var levelScene in GameManager.Instance.waveScenes)
+        foreach (var levelScene in GameManager.Instance.waveSceneNames)
         {
             // Assuming each scene name in waveScenes has a corresponding AudioClip in waveMusic
-            int index = GameManager.Instance.waveScenes.IndexOf(levelScene);
+            // int index = GameManager.Instance.waveSceneNames.IndexOf(levelScene);
+
+            int index = Array.IndexOf(GameManager.Instance.waveSceneNames, levelScene);
+
             if (index < waveMusic.Length)
             {
                 levelMusicMap[levelScene] = waveMusic[index];
@@ -68,6 +71,8 @@ public class ButtonController : MonoBehaviour
 
     public void WaveMode()
     {
+        InitializeLevelMusicMap();
+
         GameManager.Instance.RandomizeLevels();
 
         // print the new order to the console
@@ -84,6 +89,7 @@ public class ButtonController : MonoBehaviour
         if (levelMusicMap.TryGetValue(firstLevel, out AudioClip music))
         {
             musicManager.CrossfadeMusic(music, 2f);
+            Debug.Log("Crossfading to " + music.name + " for " + firstLevel);
         }
     }
 

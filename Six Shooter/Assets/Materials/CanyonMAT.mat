@@ -41,11 +41,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Cell_Density: 2.49
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
     - _Dark_Color: {r: 0, g: 0, b: 0, a: 1}
     - _Light_Color: {r: 1, g: 1, b: 0.9411765, a: 1}
+    - _Main_Color: {r: 0.5283019, g: 0.35062742, b: 0.29156286, a: 0}
+    - _Secondary_Color: {r: 0, g: 0, b: 0, a: 0}
+    - _Tiling: {r: 2, g: 2, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &3559828714384619943
 MonoBehaviour:

@@ -117,6 +117,9 @@ public class WaveSpawner : MonoBehaviour
                         return;
 
                     levelDone = true;
+
+                    completeLevelUI.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Level " + (int)GameManager.Instance.activeLevel + " Complete!";
+
                     completeLevelUI.SetActive(true);
 
                     fluteMotif2.Play();

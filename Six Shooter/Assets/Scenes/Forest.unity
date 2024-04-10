@@ -1811,7 +1811,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainButtons: {fileID: 0}
   playButtons: {fileID: 0}
-  waveMusic: []
+  waveMusic:
+  - {fileID: 8300000, guid: 4ce35d7b0cafd2c47ac3e777e3318397, type: 3}
+  - {fileID: 8300000, guid: 77d5306a1e38a974ba8df86213eeab48, type: 3}
+  - {fileID: 8300000, guid: 59e804797ea384d46ba9bc2605fd472f, type: 3}
+  - {fileID: 8300000, guid: c6bc1671ff090464cb7acca23cc90453, type: 3}
+  - {fileID: 8300000, guid: b87c644b079ac0145a4775dca05179fb, type: 3}
   targetMusic: {fileID: 8300000, guid: 63fd218e963d760449b581e5fccb0ab0, type: 3}
   menuMusic: {fileID: 8300000, guid: ff71f0a2197a7ae47a9e041a5fcb5924, type: 3}
 --- !u!4 &424075954
@@ -3009,10 +3014,18 @@ MonoBehaviour:
   useAmmo: 0
   upgradeSlotMachine: {fileID: 962023350}
   waveSpawner: {fileID: 771616731}
+  waveSceneNames:
+  - Cemetery
+  - Canyon
+  - Town
+  - Mine
+  - Forest
   waveScenes:
   - Cemetery
   - Canyon
   - Town
+  - Mine
+  - Forest
 --- !u!4 &748042641
 Transform:
   m_ObjectHideFlags: 0
@@ -4261,7 +4274,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!167 &1222151778
 AudioReverbZone:
   m_ObjectHideFlags: 0
@@ -4270,19 +4283,19 @@ AudioReverbZone:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1222151777}
   m_Enabled: 1
-  m_MinDistance: 8
-  m_MaxDistance: 12
-  m_ReverbPreset: 14
+  m_MinDistance: 30
+  m_MaxDistance: 30
+  m_ReverbPreset: 16
   m_Room: -1000
-  m_RoomHF: -237
-  m_DecayTime: 2.7
-  m_DecayHFRatio: 0.79
-  m_Reflections: -1214
-  m_ReflectionsDelay: 0.013
-  m_Reverb: 395
-  m_ReverbDelay: 0.02
+  m_RoomHF: -3300
+  m_DecayTime: 1.49
+  m_DecayHFRatio: 0.54
+  m_Reflections: -2560
+  m_ReflectionsDelay: 0.162
+  m_Reverb: -229
+  m_ReverbDelay: 0.088
   m_HFReference: 5000
-  m_Diffusion: 100
+  m_Diffusion: 79
   m_Density: 100
   m_LFReference: 250
   m_RoomLF: 0

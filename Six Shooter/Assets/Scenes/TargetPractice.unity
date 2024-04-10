@@ -3439,9 +3439,11 @@ MonoBehaviour:
   mainButtons: {fileID: 0}
   playButtons: {fileID: 0}
   waveMusic:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 4ce35d7b0cafd2c47ac3e777e3318397, type: 3}
+  - {fileID: 8300000, guid: 77d5306a1e38a974ba8df86213eeab48, type: 3}
+  - {fileID: 8300000, guid: 59e804797ea384d46ba9bc2605fd472f, type: 3}
+  - {fileID: 8300000, guid: c6bc1671ff090464cb7acca23cc90453, type: 3}
+  - {fileID: 8300000, guid: b87c644b079ac0145a4775dca05179fb, type: 3}
   targetMusic: {fileID: 8300000, guid: 63fd218e963d760449b581e5fccb0ab0, type: 3}
   menuMusic: {fileID: 8300000, guid: ff71f0a2197a7ae47a9e041a5fcb5924, type: 3}
 --- !u!4 &731222968
@@ -5392,8 +5394,39 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1105596743950260, guid: a0aa2525ba693f54db86d05aa66bde7d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1038873846}
   m_SourcePrefab: {fileID: 100100000, guid: a0aa2525ba693f54db86d05aa66bde7d, type: 3}
+--- !u!1 &1038873845 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1105596743950260, guid: a0aa2525ba693f54db86d05aa66bde7d, type: 3}
+  m_PrefabInstance: {fileID: 1038873844}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1038873846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038873845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1001 &1042291740
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9300,10 +9333,18 @@ MonoBehaviour:
   useAmmo: 1
   upgradeSlotMachine: {fileID: 0}
   waveSpawner: {fileID: 0}
+  waveSceneNames:
+  - Cemetery
+  - Canyon
+  - Town
+  - Mine
+  - Forest
   waveScenes:
   - Cemetery
   - Canyon
   - Town
+  - Mine
+  - Forest
 --- !u!4 &1911492968
 Transform:
   m_ObjectHideFlags: 0

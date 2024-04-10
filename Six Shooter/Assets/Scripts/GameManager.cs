@@ -19,7 +19,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject upgradeSlotMachine;
     [SerializeField] private GameObject waveSpawner;
-    [SerializeField] public List<string> waveScenes = new List<string>();
+    public string[] waveSceneNames;
+    [HideInInspector] public List<string> waveScenes = new List<string>();
 
     private void Awake()
     {
@@ -48,6 +49,13 @@ public class GameManager : MonoBehaviour
 
     public void RandomizeLevels()
     {
+        waveScenes.Clear();
+
+        for (int i = 0; i < waveSceneNames.Length; i++)
+        {
+            waveScenes.Add(waveSceneNames[i]);
+        }
+
         for (int i = 0; i < waveScenes.Count; i++)
         {
             string temp = waveScenes[i];

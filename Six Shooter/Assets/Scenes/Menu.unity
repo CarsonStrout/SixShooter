@@ -2016,6 +2016,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 77d5306a1e38a974ba8df86213eeab48, type: 3}
   - {fileID: 8300000, guid: 59e804797ea384d46ba9bc2605fd472f, type: 3}
   - {fileID: 8300000, guid: c6bc1671ff090464cb7acca23cc90453, type: 3}
+  - {fileID: 8300000, guid: b87c644b079ac0145a4775dca05179fb, type: 3}
   targetMusic: {fileID: 8300000, guid: 63fd218e963d760449b581e5fccb0ab0, type: 3}
   menuMusic: {fileID: 8300000, guid: ff71f0a2197a7ae47a9e041a5fcb5924, type: 3}
 --- !u!4 &689597247
@@ -3027,11 +3028,18 @@ MonoBehaviour:
   useAmmo: 1
   upgradeSlotMachine: {fileID: 0}
   waveSpawner: {fileID: 0}
+  waveSceneNames:
+  - Cemetery
+  - Canyon
+  - Town
+  - Mine
+  - Forest
   waveScenes:
   - Cemetery
   - Canyon
   - Town
   - Mine
+  - Forest
 --- !u!4 &1051808736
 Transform:
   m_ObjectHideFlags: 0
