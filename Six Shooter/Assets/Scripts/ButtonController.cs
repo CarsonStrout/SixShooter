@@ -118,7 +118,9 @@ public class ButtonController : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        BulletManager.Instance.ResetBulletTypes();
+
+        WaveMode();
     }
 
     public void Menu()

@@ -118,7 +118,7 @@ public class WaveSpawner : MonoBehaviour
 
                     levelDone = true;
 
-                    completeLevelUI.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Level " + (int)GameManager.Instance.activeLevel + " Complete!";
+                    completeLevelUI.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Level " + (int)GameManager.Instance.activeLevel + 1 + " Complete!";
 
                     completeLevelUI.SetActive(true);
 
