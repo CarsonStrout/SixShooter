@@ -47,12 +47,12 @@ public class WantedPosterController : MonoBehaviour
             if (enemy.transform.Find("Center") != null)
             {
                 transform.LookAt(enemy.transform.Find("Center"));
-                transform.position = Vector3.MoveTowards(transform.position, enemy.transform.Find("Center").position, 5 * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, enemy.transform.Find("Center").position, 6 * Time.deltaTime);
             }
             else
             {
                 transform.LookAt(enemy.transform);
-                transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, 5 * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, 6 * Time.deltaTime);
             }
 
             if (enemy.transform.parent.GetComponent<EnemyStats>().EnemyHealth <= 0)
