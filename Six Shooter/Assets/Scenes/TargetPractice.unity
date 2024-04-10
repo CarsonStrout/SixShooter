@@ -3444,6 +3444,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 59e804797ea384d46ba9bc2605fd472f, type: 3}
   - {fileID: 8300000, guid: c6bc1671ff090464cb7acca23cc90453, type: 3}
   - {fileID: 8300000, guid: b87c644b079ac0145a4775dca05179fb, type: 3}
+  - {fileID: 8300000, guid: 9a6cfb3d19316be40bfcda18a6a2cf01, type: 3}
   targetMusic: {fileID: 8300000, guid: 63fd218e963d760449b581e5fccb0ab0, type: 3}
   menuMusic: {fileID: 8300000, guid: ff71f0a2197a7ae47a9e041a5fcb5924, type: 3}
 --- !u!4 &731222968
@@ -9339,6 +9340,7 @@ MonoBehaviour:
   - Town
   - Mine
   - Forest
+  - Mountain
   waveScenes:
   - Cemetery
   - Canyon
