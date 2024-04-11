@@ -8,6 +8,7 @@ public class ExplosiveBarrel : MonoBehaviour
     [SerializeField] private int baseDamage = 10;
     [SerializeField] private float criticalChance = 0.1f;
     [SerializeField] private GameObject explosionVFX;
+    [SerializeField] private GameObject bloodVFX;
     private bool hasExploded = false;
 
     private void OnCollisionEnter(Collision other)
@@ -38,6 +39,11 @@ public class ExplosiveBarrel : MonoBehaviour
                     collider.transform.parent.GetComponent<EnemyStats>().TakeDamage((int)damage * 2, true);
                 else
                     collider.transform.parent.GetComponent<EnemyStats>().TakeDamage((int)damage, false);
+
+                Vector3 direction = collider.transform.position - transform.position;
+                Quaternion rotation = Quaternion.LookRotation(direction);
+
+                GameObject blood = Instantiate(bloodVFX, collider.transform.GetChild(0).transform.position, rotation);
             }
 
             if (collider.tag == "Hat")

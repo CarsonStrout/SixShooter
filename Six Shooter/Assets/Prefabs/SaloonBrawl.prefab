@@ -253,3 +253,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 3
   breakVFX: {fileID: 6453977531820975577, guid: 966ab047ff002524d974ebe8f84010a4, type: 3}
+  bloodVFX: {fileID: 7250063436953837709, guid: 92d1ec991f380e9498022f29bbdcde4b, type: 3}

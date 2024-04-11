@@ -6,6 +6,7 @@ public class SaloonBrawlController : MonoBehaviour
 {
     [SerializeField] private int damage = 3;
     [SerializeField] private GameObject breakVFX;
+    [SerializeField] private GameObject bloodVFX;
 
     private void Start()
     {
@@ -17,6 +18,8 @@ public class SaloonBrawlController : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             collision.transform.parent.GetComponent<EnemyStats>().TakeDamage(damage, false);
+
+            GameObject blood = Instantiate(bloodVFX, gameObject.transform.position, gameObject.transform.rotation);
 
             if (collision.transform.parent.GetComponent<EnemyStats>().EnemyHealth > 0)
                 collision.transform.parent.GetComponent<EnemyAI>().currentState = EnemyAI.State.Brawl;

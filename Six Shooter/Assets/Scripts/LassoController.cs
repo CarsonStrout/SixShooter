@@ -8,7 +8,7 @@ public class LassoController : MonoBehaviour
 
     private void Start()
     {
-        Destroy(gameObject, 5f);
+        Destroy(gameObject, 6f);
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -6,6 +6,7 @@ public class CardController : MonoBehaviour
 {
     [SerializeField] private GameObject[] cards;
     [SerializeField] private GameObject cardVFX;
+    [SerializeField] private GameObject bloodVFX;
     [SerializeField] private int minDamage = 2;
     [SerializeField] private int maxDamage = 12;
     [SerializeField] private float criticalChance = 0.2f;
@@ -34,6 +35,8 @@ public class CardController : MonoBehaviour
             {
                 isCrit = false;
             }
+
+            GameObject blood = Instantiate(bloodVFX, gameObject.transform.position, gameObject.transform.rotation);
 
             collision.transform.parent.GetComponent<EnemyStats>().TakeDamage(totalDamage, isCrit);
         }

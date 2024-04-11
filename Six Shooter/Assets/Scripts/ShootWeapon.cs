@@ -32,7 +32,7 @@ public class ShootWeapon : MonoBehaviour
     private InputData _inputData;
     [SerializeField]
     private float regularBulletSpeed = 25f, sheriffsBadgeSpeed = 25f, pokerCardSpeed = 25f, dynamiteSpeed = 10f, moonshineSpeed = 10f,
-        lassoSpeed = 15f, saloonBrawlSpeed = 15f, cactusSpeed = 25f, shotgunSpeed = 25f, wantedPosterSpeed = 15f, frontierJusticeSpeed = 35f;
+        lassoSpeed = 20f, saloonBrawlSpeed = 15f, cactusSpeed = 25f, shotgunSpeed = 25f, wantedPosterSpeed = 15f, frontierJusticeSpeed = 35f;
 
     [Space(5)]
     [Header("Controller Vibration")]

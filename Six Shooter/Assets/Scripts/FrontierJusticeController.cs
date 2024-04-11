@@ -5,6 +5,7 @@ using UnityEngine;
 public class FrontierJusticeController : MonoBehaviour
 {
     [SerializeField] private GameObject ricochetPrefab;
+    [SerializeField] private GameObject bloodSprayVFX;
 
     private void Start()
     {
@@ -16,6 +17,8 @@ public class FrontierJusticeController : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             int enemyHealth = collision.transform.parent.GetComponent<EnemyStats>().EnemyHealth;
+
+            GameObject blood = Instantiate(bloodSprayVFX, collision.transform.GetChild(0).transform.position, gameObject.transform.rotation);
 
             collision.transform.parent.GetComponent<EnemyStats>().TakeDamage(enemyHealth, true);
         }

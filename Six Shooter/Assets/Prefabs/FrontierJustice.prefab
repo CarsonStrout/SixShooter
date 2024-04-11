@@ -252,3 +252,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ricochetPrefab: {fileID: 4430275869127531485, guid: ecdb755a2027f344cbbe654bd3d68aff, type: 3}
+  bloodSprayVFX: {fileID: 7250063436953837709, guid: 930f5c8db0054bc4d9e8da8c2f029894, type: 3}

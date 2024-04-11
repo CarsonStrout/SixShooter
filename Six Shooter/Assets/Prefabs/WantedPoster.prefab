@@ -251,3 +251,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d101cbde714f4054c8b4c242814c6bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bloodVFX: {fileID: 7250063436953837709, guid: 92d1ec991f380e9498022f29bbdcde4b, type: 3}

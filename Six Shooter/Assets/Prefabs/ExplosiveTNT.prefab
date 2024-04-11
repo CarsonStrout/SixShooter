@@ -121,6 +121,7 @@ MonoBehaviour:
   baseDamage: 10
   criticalChance: 0.1
   explosionVFX: {fileID: 6453977531820975577, guid: 07e99cb675ce5fa42a81ea5004620c58, type: 3}
+  bloodVFX: {fileID: 7250063436953837709, guid: 92d1ec991f380e9498022f29bbdcde4b, type: 3}
 --- !u!65 &4854572244074265751
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -117,7 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   chaseSpeed: 5
-  retreatSpeed: 5
+  retreatSpeed: 10
   drunkSpeed: 1
   drunkTimer: 5
   saloonBrawlTimer: 10

@@ -402,6 +402,7 @@ MonoBehaviour:
   - {fileID: 2174624566421002059}
   - {fileID: 4384352480804486910}
   cardVFX: {fileID: 2114083761091257162, guid: 62698584b18a7b841abb774a0b947b5d, type: 3}
+  bloodVFX: {fileID: 7250063436953837709, guid: 92d1ec991f380e9498022f29bbdcde4b, type: 3}
   minDamage: 2
   maxDamage: 12
   criticalChance: 0.5

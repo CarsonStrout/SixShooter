@@ -5,6 +5,7 @@ using UnityEngine;
 public class WantedPosterController : MonoBehaviour
 {
     private GameObject enemy;
+    [SerializeField] private GameObject bloodVFX;
 
     private void Start()
     {
@@ -64,6 +65,8 @@ public class WantedPosterController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            GameObject blood = Instantiate(bloodVFX, gameObject.transform.position, gameObject.transform.rotation);
+
             collision.transform.parent.GetComponent<EnemyStats>().TakeDamage(10, false);
         }
 
