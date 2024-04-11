@@ -9,6 +9,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Light
     second: {fileID: 2100000, guid: cbc34ba5dff15684488ac1034febdd85, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rusty_Metal
+    second: {fileID: 2100000, guid: ec0aa026917f5b741ae2a302ae0726e7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

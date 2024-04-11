@@ -3,7 +3,12 @@ guid: 68acf97ff2daf25419b99a3eaab6cbec
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cactus
+    second: {fileID: 2100000, guid: b8928919c5151fe46961b8d7d5eb5ee0, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
