@@ -15,6 +15,11 @@ public class DynamiteController : MonoBehaviour
         Destroy(gameObject, 5f);
     }
 
+    private void FixedUpdate()
+    {
+        transform.Rotate(Vector3.up, 10f * GetComponent<Rigidbody>().velocity.y * Time.deltaTime);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         Explode();

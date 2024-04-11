@@ -281,7 +281,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &31509865
 RectTransform:
@@ -2487,7 +2487,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &372421077
 RectTransform:
@@ -5316,7 +5316,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &805367931
 RectTransform:
@@ -13141,7 +13141,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &2019945712
 RectTransform:
