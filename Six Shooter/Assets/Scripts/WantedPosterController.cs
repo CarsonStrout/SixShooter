@@ -39,7 +39,7 @@ public class WantedPosterController : MonoBehaviour
 
     private void LateUpdate()
     {
-        // move towards enemy if it exists at a speed of 5
+        // move towards enemy if it exists at a speed of 12
         if (enemy != null)
         {
             // remove force impulse from rigidbody of gameObject
@@ -48,7 +48,7 @@ public class WantedPosterController : MonoBehaviour
             if (enemy.transform.Find("Center") != null)
             {
                 transform.LookAt(enemy.transform.Find("Center"));
-                transform.position = Vector3.MoveTowards(transform.position, enemy.transform.Find("Center").position, 6 * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, enemy.transform.Find("Center").position, 12 * Time.deltaTime);
             }
             else
             {

@@ -858,10 +858,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PokerCard
       objectReference: {fileID: 0}
-    - target: {fileID: 4942179030738579388, guid: 681ea635501e0734ba1e5d6f9511adfd, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
