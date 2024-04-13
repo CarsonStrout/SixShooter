@@ -12,10 +12,10 @@ public class SpinGun : MonoBehaviour
     public bool isSpinning = false;
     [SerializeField] private AudioSource spinWhoosh;
     // Threshold for detecting fast upward motion
-    float upwardVelocityThreshold = 0.5f;
+    float upwardVelocityThreshold = 1.5f;
 
     // Threshold for detecting fast downward motion
-    float downwardVelocityThreshold = -0.5f;
+    float downwardVelocityThreshold = -1.5f;
     private enum SpinDirection
     {
         Up,
