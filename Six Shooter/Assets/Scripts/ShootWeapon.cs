@@ -25,11 +25,14 @@ public class ShootWeapon : MonoBehaviour
     private int ammoCount;
     private float timer;
     public float reloadTime = 1f;
-    private bool isReloading = false;
+    public bool isReloading = false;
 
     private bool __shootingPaused = false;
     private bool triggerDown;
     private InputData _inputData;
+
+    private SpinGun spinGun;
+
     [SerializeField]
     private float regularBulletSpeed = 25f, sheriffsBadgeSpeed = 25f, pokerCardSpeed = 25f, dynamiteSpeed = 10f, moonshineSpeed = 10f,
         lassoSpeed = 20f, saloonBrawlSpeed = 15f, cactusSpeed = 25f, shotgunSpeed = 25f, wantedPosterSpeed = 15f, frontierJusticeSpeed = 35f;
@@ -48,17 +51,51 @@ public class ShootWeapon : MonoBehaviour
     private void Start()
     {
         _inputData = GetComponent<InputData>();
+        spinGun = GetComponent<SpinGun>();
         ammoCount = maxAmmo;
     }
 
     private void Update()
     {
-        if (!isReloading)
+        if (!spinGun.isSpinning)
         {
-            if (ammoCount > 0)
+            if (!isReloading)
             {
-                if (!__shootingPaused)
+                if (ammoCount > 0)
                 {
+                    if (!__shootingPaused)
+                    {
+                        if (_inputData._rightController.TryGetFeatureValue(CommonUsages.triggerButton, out bool _triggerButtonPressed))
+                        {
+                            if (_triggerButtonPressed)
+                            {
+                                if (!triggerDown)
+                                {
+                                    triggerDown = true;
+                                    __shootingPaused = true;
+
+                                    if (GameManager.Instance.useAmmo)
+                                        ammoCount--;
+
+                                    Fire();
+
+                                    if (shotVibIntensity > 0)
+                                        controller.SendHapticImpulse(shotVibIntensity, shotVibDuration);
+
+                                    numShots++;
+
+                                    gunParticles.Play();
+                                    StartCoroutine(Pause());
+                                }
+                            }
+                            else
+                                triggerDown = false;
+                        }
+                    }
+                }
+                else
+                {
+                    // trigger button detection again
                     if (_inputData._rightController.TryGetFeatureValue(CommonUsages.triggerButton, out bool _triggerButtonPressed))
                     {
                         if (_triggerButtonPressed)
@@ -66,91 +103,61 @@ public class ShootWeapon : MonoBehaviour
                             if (!triggerDown)
                             {
                                 triggerDown = true;
-                                __shootingPaused = true;
-
-                                if (GameManager.Instance.useAmmo)
-                                    ammoCount--;
-
-                                Fire();
-
-                                if (shotVibIntensity > 0)
-                                    controller.SendHapticImpulse(shotVibIntensity, shotVibDuration);
-
-                                numShots++;
-
-                                gunParticles.Play();
+                                dryFireSound.Play();
                                 StartCoroutine(Pause());
                             }
                         }
                         else
                             triggerDown = false;
                     }
+
+                    // Threshold for detecting fast upward motion
+                    float upwardVelocityThreshold = 1.5f;
+
+                    if (_inputData._rightController.TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 velocity))
+                    {
+                        // Get the y-component of the velocity
+                        float upwardVelocity = velocity.y;
+
+                        // Check if the upward velocity exceeds the threshold
+                        if (upwardVelocity > upwardVelocityThreshold)
+                        {
+                            Reload();
+                        }
+                    }
                 }
             }
             else
             {
-                // trigger button detection again
-                if (_inputData._rightController.TryGetFeatureValue(CommonUsages.triggerButton, out bool _triggerButtonPressed))
+                revolver.gameObject.transform.Rotate(-360 * 6f * Time.deltaTime, 0, 0);
+                timer += Time.deltaTime;
+
+                // Calculate reload percentage
+                float reloadPercentage = Mathf.Clamp01(timer / reloadTime);
+
+                // Calculate current ammo based on the reload percentage
+                int currentAmmo = Mathf.RoundToInt(reloadPercentage * maxAmmo);
+
+                // Light up ammo from last to first based on currentAmmo
+                for (int i = bulletManager.isBulletLoaded.Length - 1; i >= 0; i--)
                 {
-                    if (_triggerButtonPressed)
-                    {
-                        if (!triggerDown)
-                        {
-                            triggerDown = true;
-                            dryFireSound.Play();
-                            StartCoroutine(Pause());
-                        }
-                    }
+                    if (bulletManager.isBulletLoaded.Length - i <= currentAmmo)
+                        bulletIcons.LightUpIcon(i);
                     else
-                        triggerDown = false;
+                        bulletIcons.BlackOutIcon(i);
                 }
 
-                // Threshold for detecting fast upward motion
-                float upwardVelocityThreshold = 1.5f;
-
-                if (_inputData._rightController.TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 velocity))
+                if (timer > reloadTime)
                 {
-                    // Get the y-component of the velocity
-                    float upwardVelocity = velocity.y;
+                    isReloading = false;
+                    ammoCount = maxAmmo;
+                    timer = 0;
+                    revolver.transform.localRotation = Quaternion.identity;
 
-                    // Check if the upward velocity exceeds the threshold
-                    if (upwardVelocity > upwardVelocityThreshold)
+                    for (int i = 0; i < bulletManager.isBulletLoaded.Length; i++)
                     {
-                        Reload();
+                        bulletManager.isBulletLoaded[i] = true;
                     }
-                }
-            }
-        }
-        else
-        {
-            revolver.gameObject.transform.Rotate(-360 * 6f * Time.deltaTime, 0, 0);
-            timer += Time.deltaTime;
-
-            // Calculate reload percentage
-            float reloadPercentage = Mathf.Clamp01(timer / reloadTime);
-
-            // Calculate current ammo based on the reload percentage
-            int currentAmmo = Mathf.RoundToInt(reloadPercentage * maxAmmo);
-
-            // Light up ammo from last to first based on currentAmmo
-            for (int i = bulletManager.isBulletLoaded.Length - 1; i >= 0; i--)
-            {
-                if (bulletManager.isBulletLoaded.Length - i <= currentAmmo)
-                    bulletIcons.LightUpIcon(i);
-                else
-                    bulletIcons.BlackOutIcon(i);
-            }
-
-            if (timer > reloadTime)
-            {
-                isReloading = false;
-                ammoCount = maxAmmo;
-                timer = 0;
-                revolver.transform.localRotation = Quaternion.identity;
-
-                for (int i = 0; i < bulletManager.isBulletLoaded.Length; i++)
-                {
-                    bulletManager.isBulletLoaded[i] = true;
                 }
             }
         }
