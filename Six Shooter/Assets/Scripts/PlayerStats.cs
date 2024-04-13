@@ -17,6 +17,8 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private GameObject[] otherUIs;
     [SerializeField] private MeshCollider groundCollider;
 
+    private bool bulletsDestroyed = false;
+
     public int PlayerHealth = 20;
 
     private void Update()
@@ -47,6 +49,17 @@ public class PlayerStats : MonoBehaviour
     private void PlayerDeath()
     {
         waveManager.SetActive(false);
+
+        if (!bulletsDestroyed)
+        {
+            GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
+
+            foreach (GameObject bullet in bullets)
+                Destroy(bullet);
+
+            bulletsDestroyed = true;
+        }
+
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         foreach (GameObject enemy in enemies)

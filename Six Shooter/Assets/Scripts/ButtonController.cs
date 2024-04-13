@@ -118,9 +118,17 @@ public class ButtonController : MonoBehaviour
 
     public void Restart()
     {
-        BulletManager.Instance.ResetBulletTypes();
+        if (SceneManager.GetActiveScene().name == "TargetPractice")
+        {
+            TargetMode();
+            return;
+        }
+        else
+        {
+            BulletManager.Instance.ResetBulletTypes();
 
-        WaveMode();
+            WaveMode();
+        }
     }
 
     public void Menu()
