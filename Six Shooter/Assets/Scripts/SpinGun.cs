@@ -9,6 +9,7 @@ public class SpinGun : MonoBehaviour
     private InputData _inputData;
     private ShootWeapon shootWeapon;
     [SerializeField] private GameObject revolver;
+    [SerializeField] private TrailRenderer trailRenderer;
     public bool isSpinning = false;
     [SerializeField] private AudioSource spinWhoosh;
     // Threshold for detecting fast upward motion
@@ -89,6 +90,9 @@ public class SpinGun : MonoBehaviour
                             spinWhoosh.Play();
                         }
 
+                        if (!trailRenderer.emitting)
+                            trailRenderer.emitting = true;
+
                         if (GameManager.Instance.State == GameState.UpgradeSlotMachine || GameManager.Instance.State == GameState.WaveSpawner || GameManager.Instance.State == GameState.CompleteLevel)
                             GameManager.Instance.timeGunSpun += Time.deltaTime;
 
@@ -150,6 +154,7 @@ public class SpinGun : MonoBehaviour
                 else
                 {
                     isSpinning = false;
+                    trailRenderer.emitting = false;
                     revolver.transform.localRotation = Quaternion.identity;
                 }
             }

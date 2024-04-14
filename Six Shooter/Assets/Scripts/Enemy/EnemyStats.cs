@@ -63,7 +63,6 @@ public class EnemyStats : MonoBehaviour
 
         if (GameManager.Instance.State == GameState.UpgradeSlotMachine || GameManager.Instance.State == GameState.WaveSpawner || GameManager.Instance.State == GameState.CompleteLevel)
         {
-            GameManager.Instance.shotsHit++;
             GameManager.Instance.damageGiven += damage;
         }
 

@@ -245,6 +245,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7466b03ebf6d3ad4c88114241ace3bb6, type: 3}
+--- !u!1001 &672656205
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 573290582353115568, guid: 4198870ae521b2944b97957ea66a38cc, type: 3}
+      propertyPath: m_Name
+      value: ExplosiveTNT
+      objectReference: {fileID: 0}
+    - target: {fileID: 5992219239052845104, guid: 4198870ae521b2944b97957ea66a38cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5992219239052845104, guid: 4198870ae521b2944b97957ea66a38cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5992219239052845104, guid: 4198870ae521b2944b97957ea66a38cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5992219239052845104, guid: 4198870ae521b2944b97957ea66a38cc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5992219239052845104, guid: 4198870ae521b2944b97957ea66a38cc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5992219239052845104, guid: 4198870ae521b2944b97957ea66a38cc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5992219239052845104, guid: 4198870ae521b2944b97957ea66a38cc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5992219239052845104, guid: 4198870ae521b2944b97957ea66a38cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5992219239052845104, guid: 4198870ae521b2944b97957ea66a38cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5992219239052845104, guid: 4198870ae521b2944b97957ea66a38cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4198870ae521b2944b97957ea66a38cc, type: 3}
 --- !u!1 &779172880
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,6 +914,10 @@ PrefabInstance:
     - target: {fileID: 4942179030738579388, guid: 681ea635501e0734ba1e5d6f9511adfd, type: 3}
       propertyPath: m_Name
       value: PokerCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 4942179030738579388, guid: 681ea635501e0734ba1e5d6f9511adfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2066,3 +2127,4 @@ SceneRoots:
   - {fileID: 135045684}
   - {fileID: 1432448462}
   - {fileID: 5790447774961371529}
+  - {fileID: 672656205}

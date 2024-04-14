@@ -10,6 +10,12 @@ public class UIFollow : MonoBehaviour
 
     private Vector3 targetPosition;
 
+    private void Start()
+    {
+        if (playerHead == null)
+            playerHead = Camera.main.transform;
+    }
+
     private void OnEnable()
     {
         targetPosition = playerHead.position + playerHead.forward * distanceFromPlayer;

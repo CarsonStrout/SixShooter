@@ -17,17 +17,19 @@ public class YeeHaw : MonoBehaviour
 
     private void Update()
     {
-        if (inputData._leftController.TryGetFeatureValue(CommonUsages.secondaryButton, out bool _buttonPressed))
+        if (inputData._rightController.TryGetFeatureValue(CommonUsages.secondaryButton, out bool _buttonPressed))
         {
             if (_buttonPressed)
             {
                 if (!yeeHaw.isPlaying)
                 {
-                    // Randomly play one of the two yee haw sounds
-                    if (Random.Range(0, 2) == 0)
+                    // Randomly play one of the two yee haw sounds, with low chance of playing the loud one
+                    if (Random.Range(0, 10) < 9)
                         yeeHaw.clip = yeeHaw1;
                     else
                         yeeHaw.clip = loudYeeHaw;
+
+                    yeeHaw.pitch = Random.Range(0.9f, 1.1f);
 
                     yeeHaw.Play();
 

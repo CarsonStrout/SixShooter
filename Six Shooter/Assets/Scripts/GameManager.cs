@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public List<string> waveScenes = new List<string>();
     [HideInInspector] public int damageGiven = 0;
     [HideInInspector] public int damageTaken = 0;
-    [HideInInspector] public int shotsHit = 0;
     [HideInInspector] public int totalShots = 0;
     [HideInInspector] public int hatsKnocked = 0;
     [HideInInspector] public float timeGunSpun = 0;
@@ -82,6 +81,16 @@ public class GameManager : MonoBehaviour
     {
         if (upgradeSlotMachine != null)
             UpdateGameState(GameState.UpgradeSlotMachine);
+    }
+
+    public void ResetStats()
+    {
+        damageGiven = 0;
+        damageTaken = 0;
+        totalShots = 0;
+        hatsKnocked = 0;
+        timeGunSpun = 0;
+        yeeHaws = 0;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)

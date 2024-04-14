@@ -5,6 +5,7 @@ using UnityEngine.XR;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.UIElements;
 
 public class ShootWeapon : MonoBehaviour
 {
@@ -15,9 +16,11 @@ public class ShootWeapon : MonoBehaviour
     [SerializeField] private GameObject _launchPosition;
     [SerializeField] private GameObject[] bulletPrefabs;
     [SerializeField] private GameObject revolver;
+    [SerializeField] private TrailRenderer trailRenderer;
     [SerializeField] private AudioSource shootSound, frontierShootSound, revolverSpinSound, dryFireSound;
     [SerializeField] private ParticleSystem gunParticles;
     [SerializeField] private XRBaseController controller;
+    private RotateCylinder rotateCylinder;
 
     [Space(5)]
     [Header("Stats")]
@@ -52,6 +55,7 @@ public class ShootWeapon : MonoBehaviour
     {
         _inputData = GetComponent<InputData>();
         spinGun = GetComponent<SpinGun>();
+        rotateCylinder = GetComponent<RotateCylinder>();
         ammoCount = maxAmmo;
     }
 
@@ -150,6 +154,7 @@ public class ShootWeapon : MonoBehaviour
                 if (timer > reloadTime)
                 {
                     isReloading = false;
+                    trailRenderer.emitting = false;
                     ammoCount = maxAmmo;
                     timer = 0;
                     revolver.transform.localRotation = Quaternion.identity;
@@ -165,6 +170,8 @@ public class ShootWeapon : MonoBehaviour
 
     private void Fire()
     {
+        StartCoroutine(rotateCylinder.RotateCylinderCoroutine());
+
         if (GameManager.Instance.useAmmo && !GameManager.Instance.State.Equals(GameState.Menu) && !GameManager.Instance.State.Equals(GameState.TargetPractice))
         {
             if (!bulletManager.IsBulletLoaded())
@@ -286,6 +293,8 @@ public class ShootWeapon : MonoBehaviour
     private void Reload()
     {
         isReloading = true;
+
+        trailRenderer.emitting = true;
 
         revolverSpinSound.Play();
 

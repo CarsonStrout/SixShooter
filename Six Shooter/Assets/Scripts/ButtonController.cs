@@ -32,18 +32,10 @@ public class ButtonController : MonoBehaviour
         musicManager = GameObject.FindGameObjectWithTag("MusicManager").GetComponent<MusicManager>();
     }
 
-    // private void Start()
-    // {
-    //     InitializeLevelMusicMap();
-    // }
-
     private void InitializeLevelMusicMap()
     {
         foreach (var levelScene in GameManager.Instance.waveSceneNames)
         {
-            // Assuming each scene name in waveScenes has a corresponding AudioClip in waveMusic
-            // int index = GameManager.Instance.waveSceneNames.IndexOf(levelScene);
-
             int index = Array.IndexOf(GameManager.Instance.waveSceneNames, levelScene);
 
             if (index < waveMusic.Length)
@@ -74,6 +66,8 @@ public class ButtonController : MonoBehaviour
         InitializeLevelMusicMap();
 
         GameManager.Instance.RandomizeLevels();
+
+        GameManager.Instance.ResetStats();
 
         // print the new order to the console
         foreach (var scene in GameManager.Instance.waveScenes)
