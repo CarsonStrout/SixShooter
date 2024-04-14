@@ -10,7 +10,7 @@ public class RotateCylinder : MonoBehaviour
     {
         // Rotate 60 degrees on y-axis in 0.25 seconds
         float elapsedTime = 0;
-        float duration = 0.25f;
+        float duration = 0.15f;
         Quaternion startRotation = revolverCylinder.transform.localRotation;
         Quaternion endRotation = startRotation * Quaternion.Euler(0, 60, 0); // Local axis rotation
 

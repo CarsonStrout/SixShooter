@@ -1268,7 +1268,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0331e8f7ab99b7649990afab17452e0d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.15
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6975,6 +6975,7 @@ MonoBehaviour:
   trailRenderer: {fileID: 2346765461162411143}
   isSpinning: 0
   spinWhoosh: {fileID: 88399210700557284}
+  controller: {fileID: 3641633037456581852}
 --- !u!114 &9107308750322269808
 MonoBehaviour:
   m_ObjectHideFlags: 0

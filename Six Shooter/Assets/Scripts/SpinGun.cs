@@ -12,6 +12,9 @@ public class SpinGun : MonoBehaviour
     [SerializeField] private TrailRenderer trailRenderer;
     public bool isSpinning = false;
     [SerializeField] private AudioSource spinWhoosh;
+    [SerializeField] private XRBaseController controller;
+
+
     // Threshold for detecting fast upward motion
     float upwardVelocityThreshold = 1.5f;
 
@@ -95,6 +98,8 @@ public class SpinGun : MonoBehaviour
 
                         if (GameManager.Instance.State == GameState.UpgradeSlotMachine || GameManager.Instance.State == GameState.WaveSpawner || GameManager.Instance.State == GameState.CompleteLevel)
                             GameManager.Instance.timeGunSpun += Time.deltaTime;
+
+                        controller.SendHapticImpulse(0.1f, 0.1f);
 
                         if (_inputData._rightController.TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 velocity))
                         {

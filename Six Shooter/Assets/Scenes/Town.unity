@@ -833,7 +833,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 195390901}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -10411,6 +10411,10 @@ PrefabInstance:
       propertyPath: buttonController
       value: 
       objectReference: {fileID: 424075953}
+    - target: {fileID: 8605339958591371386, guid: 28bceb33bafa05b41ad66621b6a8042a, type: 3}
+      propertyPath: playerHead
+      value: 
+      objectReference: {fileID: 1930542785}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
