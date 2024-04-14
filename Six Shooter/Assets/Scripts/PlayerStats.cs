@@ -32,6 +32,8 @@ public class PlayerStats : MonoBehaviour
         PlayerHealth -= damage;
         healthBar.UpdateHealthBar(damage);
         playerHitSound.Play();
+
+        GameManager.Instance.damageTaken += damage;
     }
 
     public void HealPlayer(int healAmount)

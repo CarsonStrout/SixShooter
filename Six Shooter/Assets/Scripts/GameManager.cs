@@ -21,6 +21,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject waveSpawner;
     public string[] waveSceneNames;
     [HideInInspector] public List<string> waveScenes = new List<string>();
+    [HideInInspector] public int damageGiven = 0;
+    [HideInInspector] public int damageTaken = 0;
+    [HideInInspector] public int shotsHit = 0;
+    [HideInInspector] public int totalShots = 0;
+    [HideInInspector] public int hatsKnocked = 0;
+    [HideInInspector] public float timeGunSpun = 0;
+    [HideInInspector] public int yeeHaws = 0;
 
     private void Awake()
     {

@@ -61,6 +61,12 @@ public class EnemyStats : MonoBehaviour
         EnemyHealth -= damage;
         enemyHitSound.Play();
 
+        if (GameManager.Instance.State == GameState.UpgradeSlotMachine || GameManager.Instance.State == GameState.WaveSpawner || GameManager.Instance.State == GameState.CompleteLevel)
+        {
+            GameManager.Instance.shotsHit++;
+            GameManager.Instance.damageGiven += damage;
+        }
+
         damageFlash.Flash();
 
         // instantiate damage popup with a bit of randomization to make it look more natural

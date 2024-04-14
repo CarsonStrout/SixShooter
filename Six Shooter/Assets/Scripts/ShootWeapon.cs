@@ -170,6 +170,9 @@ public class ShootWeapon : MonoBehaviour
             if (!bulletManager.IsBulletLoaded())
                 return;
 
+            if (GameManager.Instance.State == GameState.UpgradeSlotMachine || GameManager.Instance.State == GameState.WaveSpawner || GameManager.Instance.State == GameState.CompleteLevel)
+                GameManager.Instance.totalShots++;
+
             BulletType currentBulletType = bulletManager.GetBulletType(bulletManager.currentBulletSlot);
             GameObject bulletPrefab = bulletPrefabs[(int)currentBulletType];
 

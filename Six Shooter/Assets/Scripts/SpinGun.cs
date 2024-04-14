@@ -16,6 +16,7 @@ public class SpinGun : MonoBehaviour
 
     // Threshold for detecting fast downward motion
     float downwardVelocityThreshold = -1.5f;
+
     private enum SpinDirection
     {
         Up,
@@ -87,6 +88,9 @@ public class SpinGun : MonoBehaviour
                             spinWhoosh.pitch = Random.Range(1.2f, 1.5f);
                             spinWhoosh.Play();
                         }
+
+                        if (GameManager.Instance.State == GameState.UpgradeSlotMachine || GameManager.Instance.State == GameState.WaveSpawner || GameManager.Instance.State == GameState.CompleteLevel)
+                            GameManager.Instance.timeGunSpun += Time.deltaTime;
 
                         if (_inputData._rightController.TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 velocity))
                         {
