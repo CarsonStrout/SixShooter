@@ -148,11 +148,11 @@ public class SpinGun : MonoBehaviour
                         }
                         else if (spinDirection == SpinDirection.Left)
                         {
-                            revolver.gameObject.transform.Rotate(0, -360 * 6f * Time.deltaTime, 0);
+                            revolver.gameObject.transform.Rotate(0, 360 * 6f * Time.deltaTime, 0);
                         }
                         else if (spinDirection == SpinDirection.Right)
                         {
-                            revolver.gameObject.transform.Rotate(0, 360 * 6f * Time.deltaTime, 0);
+                            revolver.gameObject.transform.Rotate(0, -360 * 6f * Time.deltaTime, 0);
                         }
                     }
                 }
