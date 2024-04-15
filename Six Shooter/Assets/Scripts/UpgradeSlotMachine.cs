@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UpgradeSlotMachine : MonoBehaviour
 {
@@ -21,6 +20,9 @@ public class UpgradeSlotMachine : MonoBehaviour
 
     private UpgradeOptions upgradeOption;
 
+    /// <summary>
+    /// Starts the slot machine and spins the slots
+    /// </summary>
     public void StartSlotMachine()
     {
         selectedUpgrades = new int[slots.Length];
@@ -52,6 +54,9 @@ public class UpgradeSlotMachine : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Spins the slots and selects the initial final upgrade options
+    /// </summary>
     private IEnumerator SpinSlots()
     {
         isSpinning = true;
@@ -85,16 +90,19 @@ public class UpgradeSlotMachine : MonoBehaviour
         EnableSelection();
     }
 
+    /// <summary>
+    /// Randomizes the final upgrade selections to ensure that each upgrade is unique
+    /// </summary>
     private void RandomizeUniqueFinalSelections()
     {
         UnityEngine.Random.InitState((int)System.DateTime.Now.Ticks);
         HashSet<int> globalSelections = new HashSet<int>();
 
-        int[] weights = { 10, 10, 10, 10, 10, 10, 10, 10, 10, 5 }; // Lower weight for the rare upgrade
+        int[] weights = { 10, 10, 10, 10, 10, 10, 10, 10, 10, 5 }; // the lower the weight, the rarer the upgrade
 
         for (int i = 0; i < slots.Length; i++)
         {
-            // Create a weighted list of available selections
+            // weighted list of available selections
             List<int> weightedSelections = new List<int>();
             for (int j = 0; j < weights.Length; j++)
             {
@@ -104,7 +112,7 @@ public class UpgradeSlotMachine : MonoBehaviour
                 }
             }
 
-            // Shuffle the weighted selections
+            // shuffles the weighted list
             for (int j = weightedSelections.Count - 1; j > 0; j--)
             {
                 int swapIndex = UnityEngine.Random.Range(0, j + 1);
@@ -113,13 +121,13 @@ public class UpgradeSlotMachine : MonoBehaviour
                 weightedSelections[swapIndex] = temp;
             }
 
-            // Select the first element from the shuffled list and add it to the global selections
+            // select the first element from the shuffled list and add it to the global selections
             int selected = weightedSelections[0];
             selectedUpgrades[i] = selected;
             globalSelections.Add(selected);
         }
 
-        // Activate the selected upgrades
+        // activate the selected upgrades
         for (int i = 0; i < slots.Length; i++)
         {
             foreach (Transform child in slots[i].transform)
@@ -128,21 +136,19 @@ public class UpgradeSlotMachine : MonoBehaviour
             }
             slots[i].transform.GetChild(selectedUpgrades[i]).gameObject.SetActive(true);
             slots[i].transform.GetChild(selectedUpgrades[i]).GetChild(0).gameObject.SetActive(true);
-
-            // if (slots[i].transform.GetChild(selectedUpgrades[i]).name == "Frontier Justice Upgrade")
-            // {
-            //     slots[i].transform.GetChild(selectedUpgrades[i]).GetChild(1).gameObject.SetActive(true);
-            //     slots[i].transform.GetChild(selectedUpgrades[i]).GetChild(1).gameObject.GetComponent<AudioSource>().Play();
-            // }
         }
     }
 
+    /// <summary>
+    /// Enables the selection of the final upgrade options
+    /// </summary>
     private void EnableSelection()
     {
         for (int i = 0; i < slots.Length; i++)
         {
             slots[i].transform.gameObject.GetComponent<BoxCollider>().enabled = true;
 
+            // extra effects for Frontier Justice upgrade
             if (slots[i].transform.GetChild(selectedUpgrades[i]).name == "Frontier Justice Upgrade")
             {
                 slots[i].transform.GetChild(selectedUpgrades[i]).GetChild(1).gameObject.SetActive(true);
@@ -153,6 +159,10 @@ public class UpgradeSlotMachine : MonoBehaviour
         Debug.Log("Upgrade Selection Enabled");
     }
 
+    /// <summary>
+    /// Selects the upgrade option and updates the bullet type
+    /// </summary>
+    /// <param name="slotIndex"></param>
     public void SelectUpgrade(int slotIndex)
     {
         upgradeOption = (UpgradeOptions)selectedUpgrades[slotIndex];

@@ -7,6 +7,7 @@ public class TrainController : MonoBehaviour
 {
     [SerializeField] private Transform startPoint, stopPoint, endPoint;
     [SerializeField] private float speed = 10f;
+    [SerializeField] private float initialWait = 15f;
     [SerializeField] private float stopDuration = 30f; // Duration in seconds for which the train will stop
     [SerializeField] private AudioSource engineSound, trainWhistle;
     [SerializeField] private ParticleSystem smokeEffect;
@@ -22,7 +23,7 @@ public class TrainController : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(15f);
+            yield return new WaitForSeconds(initialWait);
 
             engineSound.Play();
             smokeEffect.Play();
