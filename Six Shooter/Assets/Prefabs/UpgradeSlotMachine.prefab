@@ -9843,11 +9843,11 @@ MonoBehaviour:
   - {fileID: 3868909007883983632}
   - {fileID: 534016753268609705}
   - {fileID: 8522654896372861623}
-  spinSpeed: 0.05
   spinSound: {fileID: 4227194442100932248}
   confettiSound: {fileID: 6176983532568948300}
   confirmUpgradeSound: {fileID: 0}
   confettiParticles: {fileID: 1664513306311402865}
+  spinSpeed: 0.05
 --- !u!114 &8252314929668281336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15588,7 +15588,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5812045350491671061, guid: 38185cde811cb574ea058dd2845d5030, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7805347852530947903, guid: 38185cde811cb574ea058dd2845d5030, type: 3}
       propertyPath: m_Name

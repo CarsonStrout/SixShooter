@@ -8,6 +8,7 @@ public class TargetManager : MonoBehaviour
 {
     [SerializeField] private ParticleSystem targetParticle;
     [SerializeField] private Transform[] randPos;
+    private int prevPos = 0;
     [SerializeField] private AudioSource targetHit;
     [SerializeField] private GameObject timerUI;
     [SerializeField] private GameObject endUI;
@@ -100,6 +101,7 @@ public class TargetManager : MonoBehaviour
         started = true;
 
         int rand = Random.Range(0, randPos.Length);
+        prevPos = rand;
         gameObject.transform.position = randPos[rand].position;
         meshRenderer.enabled = true;
         capsuleCollider.enabled = true;
@@ -121,6 +123,12 @@ public class TargetManager : MonoBehaviour
         Instantiate(targetParticle, gameObject.transform.position, gameObject.transform.rotation);
         targetHit.Play();
         int rand = Random.Range(0, randPos.Length);
+        while (rand == prevPos)
+        {
+            rand = Random.Range(0, randPos.Length);
+        }
+
+        prevPos = rand;
         gameObject.transform.position = randPos[rand].position;
     }
 }

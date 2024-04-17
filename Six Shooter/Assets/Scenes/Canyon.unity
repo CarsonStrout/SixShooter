@@ -3654,14 +3654,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpgradeSlotMachine
       objectReference: {fileID: 0}
-    - target: {fileID: 5860442550155527701, guid: 491d815fcb36f6e4eb7891cf7fd431b1, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6233344026379687860, guid: 491d815fcb36f6e4eb7891cf7fd431b1, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8252314929668281336, guid: 491d815fcb36f6e4eb7891cf7fd431b1, type: 3}
       propertyPath: playerHead
       value: 
@@ -8078,10 +8070,6 @@ PrefabInstance:
     - target: {fileID: 5160673979467386437, guid: 28bceb33bafa05b41ad66621b6a8042a, type: 3}
       propertyPath: m_Name
       value: Game End UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 6474013909177894910, guid: 28bceb33bafa05b41ad66621b6a8042a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8169104265594091383, guid: 28bceb33bafa05b41ad66621b6a8042a, type: 3}
       propertyPath: buttonController
