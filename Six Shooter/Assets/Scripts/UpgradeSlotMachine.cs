@@ -8,11 +8,17 @@ public class UpgradeSlotMachine : MonoBehaviour
 {
     private GameManager GameManager => GameManager.Instance;
     private BulletManager BulletManager => BulletManager.Instance;
+
+    [Header("References")]
     [SerializeField] private BulletIcons BulletIcons;
     [SerializeField] private GameObject[] slots;
-    [SerializeField] private float spinSpeed = 0.01f;
     [SerializeField] private AudioSource spinSound, confettiSound, confirmUpgradeSound;
     [SerializeField] private ParticleSystem confettiParticles;
+
+    [Space(10)]
+    [Header("Settings")]
+    [SerializeField] private float spinSpeed = 0.01f;
+
     private bool isSpinning = false;
     private int[] selectedUpgrades;
     private bool beginSlowdown = false;
@@ -41,7 +47,6 @@ public class UpgradeSlotMachine : MonoBehaviour
         if (isSpinning && !beginSlowdown)
         {
             timer += Time.deltaTime;
-            // Debug.Log(timer);
 
             if (!spinSound.isPlaying)
                 spinSound.Play();

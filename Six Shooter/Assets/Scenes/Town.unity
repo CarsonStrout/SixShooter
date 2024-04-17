@@ -6224,6 +6224,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Complete XR Origin Set Up Variant (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3093472255833080514, guid: 47d0254da84dca543924bd0055289f44, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7073308009388459873, guid: 47d0254da84dca543924bd0055289f44, type: 3}
       propertyPath: loseUI
       value: 
@@ -15417,6 +15421,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game End UI
       objectReference: {fileID: 0}
+    - target: {fileID: 6474013909177894910, guid: 28bceb33bafa05b41ad66621b6a8042a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8169104265594091383, guid: 28bceb33bafa05b41ad66621b6a8042a, type: 3}
       propertyPath: buttonController
       value: 
@@ -18204,6 +18212,7 @@ MonoBehaviour:
   stopPoint: {fileID: 1153707733}
   endPoint: {fileID: 462320982}
   speed: 5
+  initialWait: 15
   stopDuration: 30
   engineSound: {fileID: 126345823}
   trainWhistle: {fileID: 1243458200}
