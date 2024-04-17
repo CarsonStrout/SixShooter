@@ -5,9 +5,6 @@ Six Shooter
 
 <h3 align="center"><a href="https://drive.google.com/file/d/1lOQSlt4yqJvb6CZi5mwI3Ak4Ghn0KnKZ/view?usp=sharing">Demo Video</a></h3>
 
-<h3 align="center"><a href="https://www.boisestate.edu/gimm/">GIMM</a> 250 - Interactive Storytelling </h3>
-<h5 align="center"><a href="https://www.boisestate.edu/">Boise State University</a> (Spring 2023) </h5>
-
 <h4 align="center">An old-school, VR roguelike, heavily inspired by Spaghetti Westerns of the mid-to-late 1960s</h4>
 
 ![screenshot](img/SixShooter.png "Six Shooter")
@@ -90,8 +87,8 @@ To help further enhance the game's visuals, I used a fullscreen shader that decr
 
 <img align="left" alt="CSharp" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" />
 <img align="left" alt="Unity" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" />
-<img align="left" alt="Photoshop" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" />
 <img align="left" alt="Blender" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg" />
+<img align="left" alt="Photoshop" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" />
 <img align="left" alt="Trello" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain.svg" />
 
 <br />
