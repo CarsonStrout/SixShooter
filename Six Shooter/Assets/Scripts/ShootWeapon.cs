@@ -20,6 +20,7 @@ public class ShootWeapon : MonoBehaviour
     [SerializeField] private AudioSource shootSound, frontierShootSound, revolverSpinSound, dryFireSound;
     [SerializeField] private ParticleSystem gunParticles;
     [SerializeField] private XRBaseController controller;
+    [SerializeField] private GameObject bulletSlots;
     private RotateCylinder rotateCylinder;
 
     [Space(5)]
@@ -134,6 +135,7 @@ public class ShootWeapon : MonoBehaviour
             else
             {
                 revolver.gameObject.transform.Rotate(-360 * 6f * Time.deltaTime, 0, 0);
+                bulletSlots.transform.Rotate(0, 0, 360 * Time.deltaTime / reloadTime);
                 timer += Time.deltaTime;
 
                 // Calculate reload percentage
@@ -158,6 +160,7 @@ public class ShootWeapon : MonoBehaviour
                     ammoCount = maxAmmo;
                     timer = 0;
                     revolver.transform.localRotation = Quaternion.identity;
+                    bulletSlots.transform.localRotation = Quaternion.identity;
 
                     for (int i = 0; i < bulletManager.isBulletLoaded.Length; i++)
                     {
